@@ -3,8 +3,9 @@ import { Tilt } from 'react-tilt'
 
 import HocWraper from '../components/hoc'
 
-import GitHubIcon from '@mui/icons-material/GitHub'
-import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward'
+import { FaGithub } from "react-icons/fa";
+
+import { MdOutlineArrowOutward } from "react-icons/md";
 
 import { projects } from '../data/data'
 
@@ -45,7 +46,7 @@ const ProjectPage = () => {
                       console.log(link.name)
                       return (
                         <a href={link.path} className='flex items-center justify-center w-8 h-8 bg-gray-900 rounded-full scale-125'>
-                          {link.name == 'Github' ? <GitHubIcon /> : <ArrowOutwardIcon /> }
+                          {link.name == 'Github' ? <FaGithub /> : <MdOutlineArrowOutward /> }
                         </a>
                       )
                     })}

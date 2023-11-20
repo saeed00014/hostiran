@@ -32,9 +32,6 @@ export default {
         clamp3: "clamp(1.1rem, 4vw, 1.5rem)",
       },
     },
-  },
-  plugins: [
-    require('tailwindcss-3d')({ legacy: true }),
-  ],
+  }
 }
 
