@@ -1,5 +1,4 @@
 import { db } from "../connect.js"
-import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken"
 
 export const signup = (req, res) => {
