@@ -63,6 +63,13 @@ app.use("/api/likes", likeRoutes);
 app.use("/api/messages", messagesRoute);
 app.use("/api/friends", friendRuotes);
 
+mongoose.connect(
+  process.env.MONGO_URL,
+  {
+      writeConcern: { w: 'majority' },
+  }
+);
+
 app.use('/products', productRuotes);
   
 app.get("/sma/*", (_req, res) => {
@@ -73,17 +80,9 @@ app.get("/*", (_req, res) => {
   res.sendFile(path.join(__dirname, "./dist", "index.html"));
 })
 
-
-const hostname = '127.0.0.1';
 const port = 8000;
 
-app.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`)
+app.listen(port, () => {
+  console.log(`Server running at http://:${port}/`)
 });
 
-mongoose.connect(
-  process.env.MONGO_URL,
-  {
-      writeConcern: { w: 'majority' },
-  }
-);
