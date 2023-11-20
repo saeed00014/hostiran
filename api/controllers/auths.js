@@ -1,9 +1,10 @@
 import { db } from "../connect.js"
+import bcryptjs from "bcryptjs"
 import jwt from "jsonwebtoken"
 
 export const signup = (req, res) => {
-  const salt = bcrypt.genSaltSync(10);
-  const hashedPassword = bcrypt.hashSync(req.body.password, salt);
+  const salt = bcryptjs.genSaltSync(10);
+  const hashedPassword = bcryptjs.hashSync(req.body.password, salt);
   const jwtKey = '5h9d608098b78d61cf5654965dab8b53632bf831dc6b43f29289411376ac12j78'
   const jwtExpirySeconds = 300
   const email = req.body.email
