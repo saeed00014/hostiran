@@ -80,11 +80,7 @@ app.get("/*", (_req, res) => {
   res.sendFile(path.join(__dirname, "./dist", "index.html"));
 })
 
-
-const hostname = '127.0.0.1';
 const port = 8000;
 
-app.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`)
-});
+app.listen(port);
 
