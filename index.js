@@ -64,7 +64,7 @@ app.use("/api/friends", friendRuotes);
 //   }
 //   );
   
-  app.use('/products', productRuotes);
+//app.use('/products', productRuotes);
   
   app.get("/*", (_req, res) => {
     res.sendFile(path.join(__dirname, "./dist", "index.html"));
