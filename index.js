@@ -1,26 +1,28 @@
-import express from "express";
-import cors from "cors";
-import multer from "multer";
-import cookieParser from "cookie-parser";
-import bodyParser from "body-parser";
-import path from "path";
-import mongoose from "mongoose";
-// import * as dotenv from 'dotenv';
-// dotenv.config();
+// import express from "express";
+// import cors from "cors";
+// import multer from "multer";
+// import cookieParser from "cookie-parser";
+// import bodyParser from "body-parser";
+// import path from "path";
+// import mongoose from "mongoose";
+// // import * as dotenv from 'dotenv';
+// // dotenv.config();
 
-import authRoutes from "./api/routes/auths.js";
-import userRoutes from "./api/routes/users.js";
-import postRoutes from "./api/routes/posts.js";
-import commentRoutes from "./api/routes/comments.js";
-import likeRoutes from "./api/routes/likes.js";
-import messagesRoute from "./api/routes/messages.js";
-import friendRuotes from "./api/routes/friends.js";
-import productRuotes from "./api/routes/product.js";
+// import authRoutes from "./api/routes/auths.js";
+// import userRoutes from "./api/routes/users.js";
+// import postRoutes from "./api/routes/posts.js";
+// import commentRoutes from "./api/routes/comments.js";
+// import likeRoutes from "./api/routes/likes.js";
+// import messagesRoute from "./api/routes/messages.js";
+// import friendRuotes from "./api/routes/friends.js";
+// import productRuotes from "./api/routes/product.js";
+const express = require("express");
+const path = require("path");
 const app = express();
+const cors = require('cors')
 
 app.use(cors())
 
-const __dirname = path.resolve();
 app.use("/", express.static(path.join(__dirname, "./dist")));
 app.get("/api/v1", (req, res) => {
   res.json({
@@ -28,7 +30,6 @@ app.get("/api/v1", (req, res) => {
     from: "Vanaldito",
   });
 });
-
 app.get("/*", (_req, res) => {
   res.sendFile(path.join(__dirname, "./dist", "index.html"));
 })
