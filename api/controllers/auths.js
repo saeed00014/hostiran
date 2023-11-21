@@ -1,5 +1,5 @@
 const { db } = require("../connect.js");
-const bcryptjs = require("bcryptjs");
+const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const signup = (req, res) => {

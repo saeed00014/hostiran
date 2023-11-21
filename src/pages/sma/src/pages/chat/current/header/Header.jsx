@@ -10,17 +10,18 @@ const Header = ({targetUser}) => {
   const [avatar, setAvatar] = useState(null)
 
   useEffect(() => {
-    const fetchImage = async () => {
-      try {
-          const response = targetUser[0] && await import(/* @vite-ignore */`../../../../assets/avatar/${targetUser[0].avatar}`)
-          setAvatar(response.default)
-      } catch (err) {
-          //setError(err)
-      } finally {
-          //setLoading(false)
-      } 
+    function getImgUrl(){
+      const res = new URL(`../../assets/avatar/${targetUser && targetUser[0].avatar}`, import.meta.url).href
+      const urlLength = res.split('/').length
+      const url = res.split('/')[urlLength - 1]
+      if(url !== 'undefined') {
+        setAvatar(res)
+      }
+      if(url == 'undefined') {
+        setAvatar(null)
+      }
     }
-    fetchImage()
+    getImgUrl()
   }, [targetUser])
 
   return (
