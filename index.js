@@ -57,12 +57,12 @@ app.use("/api/likes", likeRoutes);
 app.use("/api/messages", messagesRoute);
 app.use("/api/friends", friendRuotes);
 
-mongoose.connect(
-  process.env.MONGO_URL,
-  {
-    writeConcern: { w: 'majority' },
-  }
-  );
+// mongoose.connect(
+//   process.env.MONGO_URL,
+//   {
+//     writeConcern: { w: 'majority' },
+//   }
+//   );
   
   app.use('/products', productRuotes);
   
