@@ -73,7 +73,7 @@ app.use("/api/friends", friendRuotes);
 const hostname = '127.0.0.1';
 const port = 8000;
 
-app.listen(port, hostname, () => {
+app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}/`)
 });
 
