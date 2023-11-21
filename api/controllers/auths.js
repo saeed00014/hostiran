@@ -1,8 +1,8 @@
-import { db } from "../connect.js"
-import bcryptjs from "bcryptjs"
-import jwt from "jsonwebtoken"
+const { db } = require("../connect.js");
+const bcryptjs = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
-export const signup = (req, res) => {
+const signup = (req, res) => {
   const salt = bcryptjs.genSaltSync(10);
   const hashedPassword = bcryptjs.hashSync(req.body.password, salt);
   const jwtKey = '5h9d608098b78d61cf5654965dab8b53632bf831dc6b43f29289411376ac12j78'
@@ -57,7 +57,7 @@ export const signup = (req, res) => {
   })
 }
 
-export const login = (req, res) => {
+const login = (req, res) => {
   const command = "SELECT * FROM users WHERE email = ?"
   const command2 = "UPDATE users SET `remember_token` = ? WHERE email = ?"
   const value = [req.body.email.toLowerCase()]
@@ -91,16 +91,15 @@ export const login = (req, res) => {
     })
   }
   
-  export const logout = (req, res) => {
-    const command = "UPDATE users SET `remember_token` = '' WHERE email = ?"
-    db.query(command, [req.params[0]], (err, data) => {
-      if(err) return res.status(500).json(err);
-      if(data) return res.status(200).json('signed out');
-    })
-  
+const logout = (req, res) => {
+  const command = "UPDATE users SET `remember_token` = '' WHERE email = ?"
+  db.query(command, [req.params[0]], (err, data) => {
+    if(err) return res.status(500).json(err);
+    if(data) return res.status(200).json('signed out');
+  })
 }
 
-export const validateToken = (req, res) => {
+const validateToken = (req, res) => {
   const command = "SELECT * FROM users WHERE remember_token = ?"
   const value = [req.body.accessToken]
   db.query(command, [value], (err, data) => {
@@ -114,3 +113,5 @@ export const validateToken = (req, res) => {
     if(!data[0]) return res.status(200).json('wrong username or password') 
   })
 }
+
+module.exports = {signup, login, logout, validateToken}

@@ -1,6 +1,6 @@
-import { db } from "../connect.js";
+const { db } = require("../connect.js");
 
-export const getPostLikes = (req, res) => {
+const getPostLikes = (req, res) => {
   const command = "SELECT * FROM likes WHERE `post_id` = ?"
   const user_id = req.params[0].split('/')[0].split('=')[0]
   const post_id = req.params[0].split('/')[0].split('=')[1]
@@ -12,7 +12,7 @@ export const getPostLikes = (req, res) => {
   })
 }
 
-export const sendLike = (req, res) => {
+const sendLike = (req, res) => {
   const command = "INSERT INTO likes (`post_id`, `user_id`) values (?)"
   const values = [
     req.body.post_id,
@@ -25,7 +25,7 @@ export const sendLike = (req, res) => {
   })
 }
 
-export const sendDisLike = (req, res) => {
+const sendDisLike = (req, res) => {
   const command = "DELETE FROM likes WHERE `user_id` = ? AND `post_id` = ?"
   
   const user_id = req.params[0].split('/')[0].split('=')[0]
@@ -35,4 +35,10 @@ export const sendDisLike = (req, res) => {
     if(err) res.status(500).json('failed');
     return res.status(200).json('disliked');
   })
+}
+
+module.exports = {
+  getPostLikes,
+  sendLike,
+  sendDisLike
 }

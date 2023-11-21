@@ -1,5 +1,5 @@
-import express from "express"
-import { getUsers, getOneUser, getFillterUser, putAvatarUser } from "../controllers/users.js"
+const express = require("express");
+const { getUsers, getOneUser, getFillterUser, putAvatarUser } = require("../controllers/users.js");
 
 const router = express.Router()
 
@@ -8,4 +8,4 @@ router.get('/s/*', getFillterUser)
 router.get('/*', getOneUser)
 router.put('/*', putAvatarUser)
 
-export default router
+module.exports = router

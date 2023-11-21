@@ -1,6 +1,6 @@
-import { db } from "../connect.js"
+const { db } = require("../connect.js");
 
-export const getMessages = (req, res) => {
+const getMessages = (req, res) => {
   const commandGetAllChatMessages = "SELECT * FROM messages WHERE chat_id = ?"
   const commandFindChat = "SELECT * FROM `chats` WHERE user_id = ?  AND targetUser_id = ?"
   const commandFindChat2 = "SELECT * FROM `chats` WHERE targetUser_id = ?  AND user_id = ?"
@@ -35,7 +35,7 @@ export const getMessages = (req, res) => {
   })
 }
 
-export const sendMessage = (req, res) => {
+const sendMessage = (req, res) => {
   const commandFindChat = "SELECT * FROM `chats` WHERE user_id = ?  AND targetUser_id = ?"
   const commandFindChat2 = "SELECT * FROM `chats` WHERE targetUser_id = ?  AND user_id = ?"
   const commandMakeChat = "INSERT INTO `chats`( `user_id`, `targetUser_id` ) VALUES (?)"
@@ -97,6 +97,12 @@ export const sendMessage = (req, res) => {
     })
   })
 }
-export const deleteMessage = (req, res) => {
+const deleteMessage = (req, res) => {
 
+}
+
+module.exports = {
+  getMessages,
+  sendMessage,
+  deleteMessage
 }

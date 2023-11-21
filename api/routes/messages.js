@@ -1,5 +1,5 @@
-import express from 'express'
-import { deleteMessage, getMessages, sendMessage } from '../controllers/messages.js'
+const express = require('express');
+const { deleteMessage, getMessages, sendMessage } = require('../controllers/messages.js');
 
 const router = express.Router()
 
@@ -7,4 +7,4 @@ router.post('/', sendMessage)
 router.get('/*', getMessages)
 router.delete('/*', deleteMessage)
 
-export default router
+module.exports = router

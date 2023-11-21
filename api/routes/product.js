@@ -1,5 +1,5 @@
-import express from "express"
-import { deleteCard, getProduct, getProducts, patchCard, postProduct } from "../controllers/product.js"
+const express = require("express");
+const { deleteCard, getProduct, getProducts, patchCard, postProduct } = require("../controllers/product.js");
 
 const router = express.Router()
 
@@ -13,4 +13,4 @@ router.delete('/:id', deleteCard)
 
 router.patch('/:id', patchCard)
 
-export default router
+module.exports = router

@@ -1,17 +1,17 @@
-import Product from '../models/product.js'
+const Product = require('../models/product.js')
 
-export const getProducts = async (req, res) => {
+const getProducts = async (req, res) => {
   const product = await Product.find()
   res.status(200).json(product)  
 }
 
-export const getProduct = async (req, res) => {
+const getProduct = async (req, res) => {
   const product = await Product.find()
   const founded = product.find((product) => product.id == req.params.id)
   res.status(200).json(founded)  
 }
 
-export const postProduct = async (req, res) => {
+const postProduct = async (req, res) => {
   const {id, img, title, isAvailable, remaining, rate, price, discountPrecent, quantity} = req.body
 
   const products = await Product.find()
@@ -24,7 +24,7 @@ export const postProduct = async (req, res) => {
 
 }
 
-export const deleteCard = async (req, res) => {
+const deleteCard = async (req, res) => {
   const { id } = req.params
   
   id == 'all' 
@@ -34,7 +34,7 @@ export const deleteCard = async (req, res) => {
   res.status(200).json(id)
 }
 
-export const patchCard = async (req, res) => {
+const patchCard = async (req, res) => {
   const { id } = req.params
 
   const product = await Product.findOneAndUpdate({id: id}, {
@@ -42,4 +42,12 @@ export const patchCard = async (req, res) => {
   })
 
   res.status(200).json(product)
+}
+
+module.exports = {
+  getProducts,
+  getProduct,
+  postProduct,
+  deleteCard,
+  patchCard
 }

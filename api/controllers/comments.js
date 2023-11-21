@@ -1,6 +1,6 @@
-import { db } from "../connect.js"
+const { db } = require("../connect.js");
 
-export const getComments = (req, res) => {
+const getComments = (req, res) => {
   const command = "SELECT * FROM comments WHERE post_id = (?)"
   const values = [req.params[0]]
   console.log(values)
@@ -11,7 +11,7 @@ export const getComments = (req, res) => {
   })
 }
 
-export const getCommentsQ = (req, res) => {
+const getCommentsQ = (req, res) => {
   const command = "SELECT * FROM comments WHERE post_id = (?)"
   const values = [req.params[0]]
   
@@ -20,7 +20,7 @@ export const getCommentsQ = (req, res) => {
     return res.status(200).json(data.length);
   })
 }
-export const sendComment = (req, res) => {
+const sendComment = (req, res) => {
   const command = "INSERT INTO `comments`(`text`, `post_id`, `user_id`) VALUES (?)"
   const command2 = "select * from comments where id=(SELECT LAST_INSERT_ID())"
   const values = [
@@ -36,6 +36,13 @@ export const sendComment = (req, res) => {
     })
   })
 }
-export const deleteComment = (req, res) => {
+const deleteComment = (req, res) => {
 
+}
+
+module.exports = {
+  getComments,
+  getCommentsQ,
+  sendComment,
+  deleteComment
 }

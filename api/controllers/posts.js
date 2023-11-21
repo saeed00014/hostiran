@@ -1,6 +1,6 @@
-import { db } from "../connect.js"
+const { db } = require("../connect.js");
 
-export const getPosts = (req, res) => {
+const getPosts = (req, res) => {
   const command = "SELECT * FROM posts"
 
   db.query(command, (err, data) => {
@@ -9,7 +9,7 @@ export const getPosts = (req, res) => {
   })
 }
 
-export const getPost = (req, res) => {
+const getPost = (req, res) => {
   const command = "SELECT * FROM posts WHERE user_id = ?"
 
   db.query(command, [[req.params[0]]], (err, data) => {
@@ -18,7 +18,7 @@ export const getPost = (req, res) => {
   })
 }
 
-export const sendPost = (req, res) => {
+const sendPost = (req, res) => {
   const command = "INSERT INTO posts (`user_id`, `text`, `media`, `likes`) value (?)"
   const command2 = "select * from posts where id=(SELECT LAST_INSERT_ID())"
 
@@ -37,7 +37,7 @@ export const sendPost = (req, res) => {
   })
 }
 
-export const deletePost = (req, res) => {
+const deletePost = (req, res) => {
   const command = "DELETE FROM posts WHERE id = (?)"
   const value = [req.params[0]]
 
@@ -45,4 +45,11 @@ export const deletePost = (req, res) => {
     if(err) res.status(500).json("failed to post post")
     res.status(200).json(data)
   })
+}
+
+module.exports = {
+  getPosts,
+  getPost,
+  sendPost,
+  deletePost
 }

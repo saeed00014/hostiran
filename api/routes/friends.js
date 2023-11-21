@@ -1,5 +1,5 @@
-import express from 'express'
-import { deleteFriend, getFriends, sendFriend, getFriend, getFollows } from '../controllers/friends.js'
+const express = require('express');
+const { deleteFriend, getFriends, sendFriend, getFriend, getFollows } = require('../controllers/friends.js');
 
 const router = express.Router()
 
@@ -9,4 +9,4 @@ router.get('/*', getFriends)
 router.post('/', sendFriend)
 router.delete('/*', deleteFriend)
 
-export default router
+module.exports = router

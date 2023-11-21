@@ -1,6 +1,6 @@
-import { db } from "../connect.js"
+const { db } = require("../connect.js");
 
-export const getFriends = (req, res) => {
+const getFriends = (req, res) => {
   const command = "SELECT * FROM friends WHERE `user_id` = ?"
   
   db.query(command, [req.params[0]], (err, data) => {
@@ -9,7 +9,7 @@ export const getFriends = (req, res) => {
   })
 }
 
-export const getFollows = (req, res) => {
+const getFollows = (req, res) => {
   const command = "SELECT * FROM friends "
   const user_id = req.params[0]
 
@@ -29,7 +29,7 @@ export const getFollows = (req, res) => {
   })
 }
 
-export const getFriend = (req, res) => {
+const getFriend = (req, res) => {
   const command = "SELECT * FROM friends WHERE `user_id` = ? AND `friend_id` = ?"
   const user_id = req.params[0].split('/')[0].split('=')[0]
   const friend_id = req.params[0].split('/')[0].split('=')[1]
@@ -38,7 +38,7 @@ export const getFriend = (req, res) => {
     return res.status(200).json(data);
   })
 }
-export const sendFriend = (req, res) => {
+const sendFriend = (req, res) => {
   const command = "INSERT INTO friends(`user_id`, `friend_id`) values (?)"
   const command2 = "SELECT * FROM friends WHERE `user_id` = ? AND `friend_id` = ?"
   const values = [
@@ -53,11 +53,19 @@ export const sendFriend = (req, res) => {
     })
   })
 }
-export const deleteFriend = (req, res) => {
+const deleteFriend = (req, res) => {
   const command = "DELETE FROM friends WHERE friend_id = ?"
   
   db.query(command, [req.params[0]], (err, data) => {
     if(err) res.status(500).json('failed');
     return res.status(200).json(data);
   })
+}
+
+module.exports = {
+  getFriends,
+  getFollows,
+  getFriend,
+  sendFriend,
+  deleteFriend
 }
