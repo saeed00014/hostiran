@@ -28,9 +28,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: ["http://localhost:5173",
-    "http://localhost:5174"
-  ]
+    origin: ["*"]
   })
 );
 app.use(cookieParser());
