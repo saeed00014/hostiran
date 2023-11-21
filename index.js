@@ -47,7 +47,6 @@ app.post('/i', upload.single('image'), (req, res) => {
 });
 
 //app.use("/sma", express.static(path.join(__dirname, "./src/pages/sma/dist")));
-app.use("/", express.static(path.join(__dirname, "./dist")));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
@@ -58,14 +57,15 @@ app.use("/api/messages", messagesRoute);
 app.use("/api/friends", friendRuotes);
 
 // mongoose.connect(
-//   process.env.MONGO_URL,
-//   {
-//     writeConcern: { w: 'majority' },
-//   }
-//   );
-  
-//app.use('/products', productRuotes);
-  
+  //   process.env.MONGO_URL,
+  //   {
+    //     writeConcern: { w: 'majority' },
+    //   }
+    //   );
+    
+  //app.use('/products', productRuotes);
+  app.use("/", express.static(path.join(__dirname, "./dist")));
+    
   app.get("/*", (_req, res) => {
     res.sendFile(path.join(__dirname, "./dist", "index.html"));
   })
