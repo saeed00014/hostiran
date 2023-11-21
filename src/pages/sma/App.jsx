@@ -16,7 +16,7 @@ import { getAllUser, validateToken } from "./services/user"
 import { getAllFriend } from "./services/friend"
 import Resume from "./resume"
 
-function App() {
+function AppSma() {
   const dispatch = useDispatch()
   const ui = useSelector((state) => state.ui)
   const accessToken = ui.token
@@ -70,6 +70,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    <div  style={{direction: 'rtl'}} className="">
       {accessToken !== '' && <Header />}
       <Routes>
         {accessToken == '' ? <>
@@ -83,10 +84,10 @@ function App() {
           <Route path="sma/signup" element={<SignupContainer />} />
         </>  
         }
-
       </Routes>
+    </div>
     </BrowserRouter>
   )
 }
 
-export default App
+export default AppSma

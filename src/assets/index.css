@@ -3,17 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: yekanb;
-  src: url('./fonts/Yekan.ttf');
-}
-
-@font-face {
-  font-family: sansi;
-  src: url('./fonts/Sans.ttf');
-
-}
-
 *, *::after, *::before {
   margin: 0;
   padding: 0;
@@ -30,14 +19,12 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #888;
-  border-radius: 5px;
+  background: #d8d8d8;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #000;
-  border-radius: 5px;
+  background: #575757;
 }
 
 /* Handle on hover */

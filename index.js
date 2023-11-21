@@ -66,10 +66,6 @@ mongoose.connect(
   
   app.use('/products', productRuotes);
   
-  app.get("/sma/*", (_req, res) => {
-    res.sendFile(path.join(__dirname, "./dist", "index2.html"));
-  })
-  
   app.get("/*", (_req, res) => {
     res.sendFile(path.join(__dirname, "./dist", "index.html"));
   })
