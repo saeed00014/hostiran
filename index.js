@@ -80,7 +80,7 @@ app.get("/*", (_req, res) => {
   res.sendFile(path.join(__dirname, "./dist", "index.html"));
 })
 
-const port = 8000;
+const port = 5500;
 
 app.listen(port);
 
