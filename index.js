@@ -7,14 +7,13 @@ const path = require("path");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-
-const authRoutes = require("./api/routes/auths.js");
-const userRoutes = require("./api/routes/users.js");
-const postRoutes = require("./api/routes/posts.js");
-const commentRoutes = require("./api/routes/comments.js");
-const likeRoutes = require("./api/routes/likes.js");
-const messagesRoute = require("./api/routes/messages.js");
-const friendRuotes = require("./api/routes/friends.js");
+// const authRoutes = require("./api/routes/auths.js");
+// const userRoutes = require("./api/routes/users.js");
+// const postRoutes = require("./api/routes/posts.js");
+// const commentRoutes = require("./api/routes/comments.js");
+// const likeRoutes = require("./api/routes/likes.js");
+// const messagesRoute = require("./api/routes/messages.js");
+// const friendRuotes = require("./api/routes/friends.js");
 // const productRuotes = require("./api/routes/product.js");
 
 const app = express();
@@ -48,13 +47,13 @@ app.use(cookieParser());
 
 //app.use("/sma", express.static(path.join(__dirname, "./src/pages/sma/dist")));
 
-app.use("/api/auth", authRoutes);
-app.use("/api/users", userRoutes);
-app.use("/api/posts", postRoutes);
-app.use("/api/comments", commentRoutes);
-app.use("/api/likes", likeRoutes);
-app.use("/api/messages", messagesRoute);
-app.use("/api/friends", friendRuotes);
+// app.use("/api/auth", authRoutes);
+// app.use("/api/users", userRoutes);
+// app.use("/api/posts", postRoutes);
+// app.use("/api/comments", commentRoutes);
+// app.use("/api/likes", likeRoutes);
+// app.use("/api/messages", messagesRoute);
+// app.use("/api/friends", friendRuotes);
 
 // mongoose.connect(
 //   process.env.MONGO_URL,
@@ -64,11 +63,11 @@ app.use("/api/friends", friendRuotes);
   //   );
   
 //app.use('/products', productRuotes);
-// app.use("/", express.static(path.join(__dirname, "./dist")));
+app.use("/", express.static(path.join(__dirname, "./dist")));
   
-// app.get("/*", (_req, res) => {
-//   res.sendFile(path.join(__dirname, "./dist", "index.html"));
-// })
+app.get("/*", (_req, res) => {
+  res.sendFile(path.join(__dirname, "./dist", "index.html"));
+})
 
 const hostname = '127.0.0.1';
 const port = 8000;
