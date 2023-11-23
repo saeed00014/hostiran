@@ -49,7 +49,7 @@ app.post('/i', upload.single('image'), (req, res) => {
 //app.use("/sma", express.static(path.join(__dirname, "./src/pages/sma/dist")));
 app.use("/", express.static(path.join(__dirname, "./dist")));
   
-app.use("/api/auth", console.log('req'));
+//app.use("/api/auth", console.log('req'));
 // app.use("/api/users", userRoutes);
 // app.use("/api/posts", postRoutes);
 // app.use("/api/comments", commentRoutes);
