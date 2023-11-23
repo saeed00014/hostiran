@@ -7,7 +7,6 @@ const path = require("path");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-
 const authRoutes = require("./api/routes/auths.js");
 const userRoutes = require("./api/routes/users.js");
 const postRoutes = require("./api/routes/posts.js");
@@ -29,24 +28,25 @@ app.use(bodyParser.json());
 app.use(
   cors()
 );
-app.use(cookieParser());
+// app.use(cookieParser());
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, './src/assets/avatar')
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + '-' + file.originalname)
-  }
-})
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, './src/assets/avatar')
+//   },
+//   filename: function (req, file, cb) {
+//     cb(null, Date.now() + '-' + file.originalname)
+//   }
+// })
 
-const upload = multer({ storage: storage })
+// const upload = multer({ storage: storage })
 
-app.post('/i', upload.single('image'), (req, res) => {
-  res.send(req.file.filename)
-});
+// app.post('/i', upload.single('image'), (req, res) => {
+//   res.send(req.file.filename)
+// });
 
 //app.use("/sma", express.static(path.join(__dirname, "./src/pages/sma/dist")));
+app.use("/", express.static(path.join(__dirname, "./dist")));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
@@ -64,7 +64,6 @@ app.use("/api/friends", friendRuotes);
     //   );
     
   //app.use('/products', productRuotes);
-  app.use("/", express.static(path.join(__dirname, "./dist")));
     
   app.get("/*", (_req, res) => {
     res.sendFile(path.join(__dirname, "./dist", "index.html"));
