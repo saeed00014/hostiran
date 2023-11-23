@@ -44,7 +44,6 @@ app.use(cors());
 // });
 
 //app.use("/sma", express.static(path.join(__dirname, "./src/pages/sma/dist")));
-app.use("/", express.static(path.join(__dirname, "./dist")));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
@@ -54,6 +53,10 @@ app.use("/api/likes", likeRoutes);
 app.use("/api/messages", messagesRoute);
 app.use("/api/friends", friendRuotes);
 
+app.use("/", express.static(path.join(__dirname, "./dist")));
+app.get("/*", (_req, res) => {
+  res.sendFile(path.join(__dirname, "./dist", "index.html"));
+})
 // mongoose.connect(
   //   process.env.MONGO_URL,
   //   {
@@ -63,9 +66,6 @@ app.use("/api/friends", friendRuotes);
     
   //app.use('/products', productRuotes);
     
-  app.get("/*", (_req, res) => {
-    res.sendFile(path.join(__dirname, "./dist", "index.html"));
-  })
 
 const hostname = '127.0.0.1';
 const port = 4000;
