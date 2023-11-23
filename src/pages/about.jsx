@@ -47,7 +47,7 @@ const AboutPage = () => {
             return (
               <li className={`group relative flex items-center justify-center md:p-4 p-3 bg-g_Background_Shaded rounded-2xl`}>
                 <img src={skill.img} alt={skill.name} className={`object-contain md:w-[48px] md:h-[48px] w-[40px] h-[40px]`}/>
-                <span className='group absolute -top-7 bg-g_Border_Shaded px-2 rotate-x-90 group-hover:rotate-x-0 transition-all duration-300'>
+                <span className='group absolute -top-7 bg-g_Border_Shaded px-2 hidden group-hover:flex transition-all duration-300'>
                   {skill.name}
                 </span>
               </li>
