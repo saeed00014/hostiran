@@ -9,7 +9,7 @@ import LoadingPage from './components/loadingPage'
 
 const HomePage = lazy(() => {
   return new Promise(resolve => {
-    setTimeout(() => resolve(import("./pages/home")), 850);
+    setTimeout(() => resolve(import("./pages/home")), 1);
   })
 })
 const ProjectPage = lazy(() => {

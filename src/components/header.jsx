@@ -16,7 +16,7 @@ const Header = () => {
           Saeed
         </Link>
         </div>
-        <ul className={`hidden sm:flex justify-between w-full max-w-[400px]`}>
+        <ul className={`hidden md:flex justify-between w-full max-w-[400px]`}>
           {navLinks.map((link) => {
             return (
               <Link key={link.name} to={`${link.link}`} onClick={() => setActive(link.link)} className={`relative ${active.includes(link.link) ? 'text-g_Button_Active' : 'text-g_Text_White'} flex items-center justify-center text-[20px] after:content-['_'] after:absolute after:-bottom-1 after:flex after:h-[1px] after:w-0 hover:after:w-full after:transition-all after:duration-200 after:bg-g_Button_Active`}>
@@ -25,7 +25,7 @@ const Header = () => {
             )
           })}
         </ul>
-        <div className='sm:hidden flex justify-end w-full'>
+        <div className='md:hidden flex justify-end w-full'>
           <div onClick={() => setHamb(!hamb)} className='relative flex flex-col items-end justify-center h-5 w-9 gap-[5px] cursor-pointer'>
             <span className={`absolute top-0 h-[2px] ${hamb ? ' w-7 rotate-45 top-[45%]' : ' w-5'} bg-white transition-all ease-in-out duration-500`}></span>
             <span className={`absolute right-0 ${hamb ? 'w-0' : 'w-9'}  h-[2px] bg-white transition-all ease-in-out duration-200`}></span>

@@ -7,6 +7,17 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'sm': '320px',
+  
+        'md': '640px',
+  
+        'lg': '960px',
+  
+        'xl': '1280px',
+  
+        '2xl': '1728px',
+      },
       colors: {
         g_Text_White: '#FFF',
         g_Text_Black: '#000',
@@ -32,7 +43,7 @@ export default {
       },
       fontSize: {
         clamp1: "clamp(.8rem, 4vw, 1rem)",
-        clamp: "clamp(1rem, 13vw, 5.2rem)",
+        clamp: "clamp(1rem, 12vw, 4.2rem)",
         clamp2: "clamp(1rem, 5vw, 1.5rem)",
         clamp3: "clamp(1.1rem, 4vw, 1.5rem)",
       },
