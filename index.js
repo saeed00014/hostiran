@@ -14,7 +14,7 @@ const commentRoutes = require("./api/routes/comments.js");
 const likeRoutes = require("./api/routes/likes.js");
 const messagesRoute = require("./api/routes/messages.js");
 const friendRuotes = require("./api/routes/friends.js");
-const productRuotes = require("./api/routes/product.js");
+//const productRuotes = require("./api/routes/product.js");
 
 const app = express();
 
