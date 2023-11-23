@@ -45,13 +45,13 @@ app.use(cors());
 
 //app.use("/sma", express.static(path.join(__dirname, "./src/pages/sma/dist")));
 
-app.use("/api/auth", authRoutes);
-app.use("/api/users", userRoutes);
-app.use("/api/posts", postRoutes);
-app.use("/api/comments", commentRoutes);
-app.use("/api/likes", likeRoutes);
-app.use("/api/messages", messagesRoute);
-app.use("/api/friends", friendRuotes);
+// app.use("/api/auth", authRoutes);
+// app.use("/api/users", userRoutes);
+// app.use("/api/posts", postRoutes);
+// app.use("/api/comments", commentRoutes);
+// app.use("/api/likes", likeRoutes);
+// app.use("/api/messages", messagesRoute);
+// app.use("/api/friends", friendRuotes);
 
 app.use("/", express.static(path.join(__dirname, "./dist")));
 app.get("/*", (_req, res) => {
