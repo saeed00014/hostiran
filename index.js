@@ -4,16 +4,17 @@ const multer = require("multer");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const path = require('path')
 require("dotenv").config();
 
-const authRoutes = require("./routes/auths.js");
-const userRoutes = require("./routes/users.js");
-const postRoutes = require("./routes/posts.js");
-const commentRoutes = require("./routes/comments.js");
-const likeRoutes = require("./routes/likes.js");
-const messagesRoute = require("./routes/messages.js");
-const friendRuotes = require("./routes/friends.js");
-const productRuotes = require("./routes/product.js");
+const authRoutes = require("./api/routes/auths.js");
+const userRoutes = require("./api/routes/users.js");
+const postRoutes = require("./api/routes/posts.js");
+const commentRoutes = require("./api/routes/comments.js");
+const likeRoutes = require("./api/routes/likes.js");
+const messagesRoute = require("./api/routes/messages.js");
+const friendRuotes = require("./api/routes/friends.js");
+const productRuotes = require("./api/routes/product.js");
 
 const app = express();
 
