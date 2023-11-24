@@ -62,10 +62,11 @@ app.get("/*", (_req, res) => {
 
 const port = 8000;
 
-
 mongoose.connect(
   'mongodb+srv://saeed00014:amiralim890@cluster0.79q6syx.mongodb.net/?retryWrites=true&w=majority',
   {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
     writeConcern: { w: 'majority' },
   }
 );
