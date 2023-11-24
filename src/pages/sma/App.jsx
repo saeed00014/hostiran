@@ -45,10 +45,10 @@ function AppSma() {
         const result = await validateToken(url, accessToken)
         if(result == 'wrong username or password') {
           dispatch(setToken(''))
-          location.reload()
         }
         if(result && result !== 'wrong username or password') {
           dispatch(setToken(result))
+          location.reload()
         }
       }
       validateTokenFunc()
@@ -69,7 +69,6 @@ function AppSma() {
     async function getAllOnlineFriendsFunc() {
       const url = `https://saeedwebdev.ir/api/friends/${loginUser[0] && loginUser[0].id}`
       const allOnlineFriends = loginUser[0] && await getAllFriend(url)
-      console.log(allOnlineFriends)
       if(allOnlineFriends) {
         dispatch(setAllOnlineFriends(allOnlineFriends))
       }

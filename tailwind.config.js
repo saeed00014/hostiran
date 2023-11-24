@@ -5,16 +5,6 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  build: {
-    watch: {
-      rollupOptions: {
-        output: {
-          assetSma: "./src/pages/sma/assets/avatar",
-        },
-      },
-      write: true,
-    }
-  },
   theme: {
     extend: {
       screens: {
