@@ -53,7 +53,7 @@ app.use("/api/likes", likeRoutes);
 app.use("/api/messages", messagesRoute);
 app.use("/api/friends", friendRuotes);
 
-app.use('/api/products', productRuotes);
+// app.use('/api/products', productRuotes);
 app.use("/", express.static(path.join(__dirname, "./dist")));
 
 app.get("/*", (_req, res) => {
@@ -62,14 +62,12 @@ app.get("/*", (_req, res) => {
 
 const port = 8000;
 
-mongoose.connect(
-  'mongodb+srv://saeed00014:amiralim890@cluster0.79q6syx.mongodb.net/?retryWrites=true&w=majority',
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    writeConcern: { w: 'majority' },
-  }
-);
+// mongoose.connect(
+//   'mongodb+srv://saeed00014:amiralim890@cluster0.79q6syx.mongodb.net/?retryWrites=true&w=majority',
+//   {
+//     writeConcern: { w: 'majority' },
+//   }
+// );
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}/`)
 });
