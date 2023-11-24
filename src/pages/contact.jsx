@@ -42,12 +42,12 @@ const ContactPage = ({homeedition}) => {
     <section className='flex md:items-center justify-center w-screen min-h-screen h-full lg:pt-44 md:pt-40 pt-36'>
       <div className={`flex flex-col items-center justify-center w-full lg:gap-10 md:gap-8 gap-6`}>
         <div className='flex flex-col items-start justify-center w-full max-w-[750px] -mt-20 gap-2'>
-          <h1 className='lg:text-5xl md:text-4xl text-3xl font-[600]'>
+          <span className='lg:text-5xl md:text-4xl text-3xl font-[600]'>
             contact me .
-          </h1>
-          <p className='lg:text-2xl md:text-[1.4rem] text-[1.3rem]'>
+          </span>
+          <span className='lg:text-2xl md:text-[1.4rem] text-[1.3rem]'>
             send me a massage
-          </p>
+          </span>
         </div>
         <form homeedition={homeedition} ref={form} className={`flex flex-col w-full max-w-[750px] gap-10 [&_textarea]:bg-g_Background_Shaded [&_input]:bg-g_Background_Shaded `}>
           <div className='flex md:flex-row flex-col gap-6'>

@@ -31,9 +31,9 @@ const ProductCard = ({product}) => {
 
   return (
     <div className='flex flex-col bg-g_Text_White w-full h-fit'>
-      <div className='flex sm:flex-row flex-col'>
-        <div className='flex items-center justify-center sm:w-[12rem] w-full'>
-          <img src={product.img} alt="" className='object-contain sm:w-[12rem] w-[8rem] h-full' />
+      <div className='flex md:flex-row flex-col'>
+        <div className='flex items-center justify-center md:w-[12rem] w-full'>
+          <img src={product.img} alt="" className='object-contain md:w-[12rem] w-[8rem] h-full' />
         </div>
         <div className='flex flex-col justify-between text-right p-4'>
           <div className='flex flex-col items-start gap-1'>

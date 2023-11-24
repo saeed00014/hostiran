@@ -1,21 +1,38 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-
-import HomePage from "./pages/home/Home"
-import ProfilePage from "./pages/profile/Profile"
-import ChatPage from "./pages/chat/Chat"
-import Header from "./components/Header"
-
-import LoginContainer from "./pages/login/LoginContainer"
-import GuestLayout from "./components/GuestLayout"
-import SignupContainer from "./pages/login/SignupContainer"
 import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react"
+import { lazy, useEffect } from "react"
+
 import { setAllLoginUser, setAllOnlineFriends, setAllPost, setAllSuggestedFriends, setToken } from "./store/UiSlice"
 import { getAllPost } from "./services/post"
 import { getAllUser, validateToken } from "./services/user"
 import { getAllFriend } from "./services/friend"
-import Resume from "./resume"
 
+import Header from './components/Header'
+const LoginContainer = lazy(() => {
+  return new Promise(resolve => {
+    setTimeout(() => resolve(import("./pages/login/LoginContainer")), 0);
+  })
+})
+const HomePage = lazy(() => {
+  return new Promise(resolve => {
+    setTimeout(() => resolve(import("./pages/home/Home")), 0);
+  })
+})
+const ProfilePage = lazy(() => {
+  return new Promise(resolve => {
+    setTimeout(() => resolve(import("./pages/profile/Profile")), 0);
+  })
+})
+const ChatPage = lazy(() => {
+  return new Promise(resolve => {
+    setTimeout(() => resolve(import("./pages/chat/Chat")), 0);
+  })
+})
+const Resume = lazy(() => {
+  return new Promise(resolve => {
+    setTimeout(() => resolve(import("./resume")), 0);
+  })
+})
 function AppSma() {
   const dispatch = useDispatch()
   const ui = useSelector((state) => state.ui)
@@ -81,7 +98,6 @@ function AppSma() {
           <Route path="sma/profile/*" element={<ProfilePage />} />
           <Route path="sma/chat/*" element={<ChatPage />} />
           <Route path="sma/login" element={<LoginContainer />} />
-          <Route path="sma/signup" element={<SignupContainer />} />
         </>  
         }
       </Routes>

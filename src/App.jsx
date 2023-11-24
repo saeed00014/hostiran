@@ -9,22 +9,22 @@ import LoadingPage from './components/loadingPage'
 
 const HomePage = lazy(() => {
   return new Promise(resolve => {
-    setTimeout(() => resolve(import("./pages/home")), 1);
+    setTimeout(() => resolve(import("./pages/home")), 500);
   })
 })
 const ProjectPage = lazy(() => {
   return new Promise(resolve => {
-    setTimeout(() => resolve(import("./pages/projects")), 850);
+    setTimeout(() => resolve(import("./pages/projects")), 500);
   })
 })
 const AboutPage = lazy(() => {
   return new Promise(resolve => {
-    setTimeout(() => resolve(import("./pages/about")), 850);
+    setTimeout(() => resolve(import("./pages/about")), 500);
   })
 })
 const ContactPage = lazy(() => {
   return new Promise(resolve => {
-    setTimeout(() => resolve(import("./pages/contact")), 850);
+    setTimeout(() => resolve(import("./pages/contact")), 500);
   })
 })
 

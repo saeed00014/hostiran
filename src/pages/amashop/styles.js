@@ -1,3 +1,3 @@
 export const styles = {
-  paddingX: 'lg:px-12 md:px-8 sm:px-4 px-2'
+  paddingX: 'lg:px-6 md:px-4 px-2'
 }

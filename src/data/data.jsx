@@ -1,13 +1,16 @@
 export const navLinks = [
   {
+    id: 1,
     link: 'about',
     name: '01.About'
   },
   {
+    id: 2,
     link: 'projects',
     name: '02.Projects'
   },
   {
+    id: 3,
     link: 'contact',
     name: '03.Contact'
   }
@@ -33,7 +36,7 @@ import amashop from '../assets/images/amashop.jpg'
 
 export const projects = [
   {
-    id: '1',
+    id: 1,
     img: amashop,
     name: 'اپلیکیشن فروشگاهی',
     nameE: '(Amashop)',
@@ -53,7 +56,7 @@ export const projects = [
     ]
   },
   {
-    id: '2',
+    id: 2,
     img: AjorPlus,
     name: 'اپلیکیشن شبکه اجتماعی',
     nameE: '(SMA)',
@@ -89,51 +92,51 @@ import mysql from '../assets/images/mysql.png'
 
 export const skill = [
   {
-   name: 'Html5',
-   img: html5 
+    name: 'Html5',
+    img: html5 
   },
   {
-   name: 'Css3',
-   img: css3 
+    name: 'Css3',
+    img: css3 
   },
   {
-   name: 'Tailwind',
-   img: tailwind 
+    name: 'Tailwind',
+    img: tailwind 
   },
   {
-   name: 'Javascript',
-   img: javascript 
+    name: 'Javascript',
+    img: javascript 
   },
   {
-   name: 'ReactJs',
-   img: react 
+    name: 'ReactJs',
+    img: react 
   },
   {
-   name: 'NextJs',
-   img: next 
+    name: 'NextJs',
+    img: next 
   },
   {
-   name: 'Redux',
-   img: redux 
+    name: 'Redux',
+    img: redux 
   },
   {
     name: 'Rest-api',
     img: restapi 
   },
   {
-   name: 'NodeJs',
-   img: node 
+    name: 'NodeJs',
+    img: node 
   },
   {
-   name: 'ExpressJs',
-   img: express 
+    name: 'ExpressJs',
+    img: express 
   },
   {
-   name: 'mysql',
-   img: mysql 
+    name: 'mysql',
+    img: mysql 
   },
   {
-   name: 'mongodb',
-   img: mongodb 
+    name: 'mongodb',
+    img: mongodb 
   }
 ]

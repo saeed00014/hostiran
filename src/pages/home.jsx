@@ -11,9 +11,9 @@ const HomePage = () => {
     return (
       <>
         {letter.name == 'I' || letter.name == 'S' || letter.name == 'W' || letter.name == 'D' ? <>&nbsp;</> : ''}
-        <h1 key={letter.id} className='flex xl:text-7xl lg:text-6xl md:text-6xl text-clamp md:h-[initial] h-[14.5vw] font-medium hover:scale-125 transition-all duration-160 hover:text-g_Background_Shaded'>
+        <span key={letter.id} className='flex xl:text-7xl lg:text-6xl md:text-6xl text-clamp md:h-[initial] h-[14.5vw] font-medium hover:scale-125 transition-all duration-160 hover:text-g_Background_Shaded'>
           {letter.name}
-        </h1>
+        </span>
       </>
     )
   }
@@ -58,9 +58,9 @@ const HomePage = () => {
           </div>
         </div>
         <Link to='/projects' className={`relative flex items-center justify-center md:w-56 md:h-14 w-[40vw] h-[10vw] min-w-[10rem] max-w-[14rem] min-h-[2.8rem] max-h-[3.5rem] md:text-2xl text-clamp3 border-[1px] before:content-['_'] before:absolute before:w-full before:h-full before:bg-g_Background_Shaded before:-left-[108%] hover:before:left-0 before:transition-all before:duration-700 before:z-0 after:content-['_'] after:absolute after:w-20 after:h-full after:bg-g_Background_Shaded after:right-[87%] after:top-5 after:rotate-[50deg] hover:after:-right-12 after:transition-all after:duration-700 after:z-0 overflow-hidden`} >
-          <p className='absolute z-10'>
+          <span className='absolute z-10'>
             Projects
-          </p>
+          </span>
         </Link>
       </div>
     </section>

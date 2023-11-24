@@ -8,7 +8,7 @@ import Category from './category'
 
 const HomePage = () => {
   return (
-    <section className='flex flex-col items-center justify-center w-full'>
+    <section className='flex flex-col items-center justify-center w-full md:pb-0 pb-10'>
       <ImgSlider />
       <HomeDiscount />
       <Category />

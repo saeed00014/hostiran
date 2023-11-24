@@ -22,7 +22,7 @@ const HomeDiscount = () => {
 
         <div className={`${styles.paddingX} flex justify-between items-center w-screen md:h-20 h-16 bg-yellow-500`}>
           <PrecentMaker />
-          <h1 className='md:text-3xl text-2xl font-[500] pb-1 text-white'>تخفیف های ویژه</h1>
+          <span className='md:text-3xl text-2xl font-[500] pb-1 text-white'>تخفیف های ویژه</span>
           <PrecentMaker />
         </div>
 
@@ -32,22 +32,22 @@ const HomeDiscount = () => {
 
             <div className='absolute bottom-2'>
               <Link to='' className='flex text-[1.2rem] gap-1 cursor-pointer'>
-                <p className='sm:text-[1rem] text-[.9rem]'>
+                <span className='md:text-[1rem] text-[.9rem]'>
                   مشاهده همه
-                </p>
-                <span className='sm:pt-[2px] -mt-1'>
+                </span>
+                <span className='md:pt-[2px] -mt-1'>
                   &gt;
                 </span>
               </Link>
             </div>
 
-            <div className='flex flex-col sm:w-[10rem] w-[7rem] pb-6'>
-              <h1 className='flex items-start justify-center w-full font-[500] sm:text-[1rem] text-[.8rem]'>
+            <div className='flex flex-col md:w-[10rem] w-[7rem] pb-6'>
+              <span className='flex items-start justify-center w-full font-[500] md:text-[1rem] text-[.8rem]'>
                 تخفیف های امروز 
-              </h1>
+              </span>
               <span className='relative flex items-start justify-center'>
-                <TbCalendarStats className='sm:text-7xl text-6xl'/>
-                <span className='absolute bottom-3 sm:left-16 font-[500]'>
+                <TbCalendarStats className='md:text-7xl text-6xl'/>
+                <span className='absolute bottom-3 md:left-16 font-[500]'>
                   24
                 </span>
               </span>

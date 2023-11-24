@@ -60,7 +60,7 @@ mongoose.connect(
   }
 );
   
-app.use('/products', productRuotes);
+app.use('/api/products', productRuotes);
 app.use("/", express.static(path.join(__dirname, "./dist")));
   
 app.get("/*", (_req, res) => {

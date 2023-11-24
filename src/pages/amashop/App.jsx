@@ -1,18 +1,30 @@
-
-
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import { useEffect } from 'react'
+import { Suspense, lazy, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { getAllCards } from '../../store/dataSlice'
 import { cardLoading } from '../../store/loadingSlice'
 
-import HomePage from "./pages/home/home"
-import CardPage from "./pages/card/card"
 import Header from "./components/header"
 import Footer from "./components/footer"
-import Product from "./pages/product/product"
+
+const HomePage = lazy(() => {
+  return new Promise(resolve => {
+    setTimeout(() => resolve(import("./pages/home/home")), 0);
+  })
+})
+const CardPage = lazy(() => {
+  return new Promise(resolve => {
+    setTimeout(() => resolve(import("./pages/card/card")), 0);
+  })
+})
+const Product = lazy(() => {
+  return new Promise(resolve => {
+    setTimeout(() => resolve(import("./pages/product/product")), 0);
+  })
+})
 
 import axios from 'axios'
+import LoadingPage from "../../components/loadingPage"
 
 function AppS() {
   const dispatch = useDispatch()
@@ -39,11 +51,13 @@ function AppS() {
     <BrowserRouter>
     <div style={{direction: 'rtl'}} className="[&>*]:bg-g_Background_White_Shop [&>*]:text-black [&>*]:font-sans [&>*]:font-[500]">
       <Header />
+      <Suspense fallback={<LoadingPage />}>
       <Routes>
         <Route path="/shop" element={<HomePage />} />
         <Route path="/shop/card" element={<CardPage />} />
         <Route path="/shop/product/*" element={<Product />} />
       </Routes>
+      </Suspense>
       <Footer />
     </div>
     </BrowserRouter>
