@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const path = require('path')
 require("dotenv").config();
+const http = require('http').Server(express);
 
 const authRoutes = require("./api/routes/auths.js");
 const userRoutes = require("./api/routes/users.js");
