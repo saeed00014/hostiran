@@ -53,22 +53,22 @@ app.use("/api/likes", likeRoutes);
 app.use("/api/messages", messagesRoute);
 app.use("/api/friends", friendRuotes);
 
-mongoose.connect(
-  'mongodb+srv://saeed00014:amiralim890@cluster0.79q6syx.mongodb.net/?retryWrites=true&w=majority',
-  {
-    writeConcern: { w: 'majority' },
-  }
-);
-  
 app.use('/api/products', productRuotes);
 app.use("/", express.static(path.join(__dirname, "./dist")));
-  
+
 app.get("/*", (_req, res) => {
   res.sendFile(path.join(__dirname, "./dist", "index.html"));
 })
 
 const port = 8000;
 
+
+mongoose.connect(
+  'mongodb+srv://saeed00014:amiralim890@cluster0.79q6syx.mongodb.net/?retryWrites=true&w=majority',
+  {
+    writeConcern: { w: 'majority' },
+  }
+);
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}/`)
 });
