@@ -11,7 +11,7 @@ const Header = ({targetUser}) => {
 
   useEffect(() => {
     function getImgUrl(){
-      const res = new URL(`../../assets/avatar/${targetUser && targetUser[0].avatar}`, import.meta.url).href
+      const res = new URL(`../../../../assets/avatar/${targetUser && targetUser[0].avatar}`, import.meta.url).href
       const urlLength = res.split('/').length
       const url = res.split('/')[urlLength - 1]
       if(url !== 'undefined') {

@@ -9,27 +9,27 @@ import { MdOutlineNotificationsNone } from 'react-icons/md'
 export const mainHeaderLinks = [
   {
     name: 'خانه',
-    path: 'sma/',
+    path: '/sma/',
     icon: <HiOutlineHome />
   },
   {
     name: 'جستجو',
-    path: 'sma/explore',
+    path: '/sma/explore',
     icon: <PiMagnifyingGlassBold />
   },
   {
     name: 'هشدار ها',
-    path: 'sma/explore',
+    path: '/sma/explore',
     icon: <MdOutlineNotificationsNone />
   },
   {
     name: 'پیام ها',
-    path: 'sma/my/messages',
+    path: '/sma/my/messages',
     icon: <TiMessages />
   },
   {
     name: 'گروه ها',
-    path: 'sma/my/groups',
+    path: '/sma/my/groups',
     icon: <HiOutlineUserGroup />
   },
   {
@@ -42,22 +42,22 @@ export const mainHeaderLinks = [
 export const bottomHeaderLinks = [
   {
     name: 'خانه',
-    path: 'sma/',
+    path: '/sma/',
     icon: <HiOutlineHome />
   },
   {
     name: 'جستجو',
-    path: 'sma/explore',
+    path: '/sma/explore',
     icon: <PiMagnifyingGlassBold />
   },
   {
     name: 'هشدار ها',
-    path: 'sma/explore',
+    path: '/sma/explore',
     icon: <MdOutlineNotificationsNone />
   },
   {
     name: 'پیام ها',
-    path: 'sma/my/messages',
+    path: '/sma/my/messages',
     icon: <TiMessages />
   }
 ]
