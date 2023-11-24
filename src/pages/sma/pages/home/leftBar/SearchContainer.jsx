@@ -5,9 +5,9 @@ import SearchedUser from './SearchedUser'
 
 const SearchContainer = ({sValue}) => {
   const [result, setResult] = useState('')
-  const [avatar, setAvatar] = useState(null)
+
   useEffect(() => {
-    const url =  `http://127.0.0.1:8000/api/users/s/${sValue}`
+    const url =  `https://saeedwebdev.ir/api/users/s/${sValue}`
     async function getFillterUserFunc() {
       const fillterUsers = sValue && await getFillterUser(url)
       if(fillterUsers) {

@@ -19,7 +19,7 @@ const Header = () => {
   const targetUser = ui.targetUser
 
   useEffect(() => {
-    const url = `http://127.0.0.1:8000/api/friends/q/${targetUser[0] && targetUser[0].id}`
+    const url = `https://saeedwebdev.ir/api/friends/q/${targetUser[0] && targetUser[0].id}`
     async function getAllUserFollowFunc() {
       const result = targetUser[0] && await getAllUserFollow(url)
       if(result) {
@@ -32,7 +32,7 @@ const Header = () => {
 
   const handleLogout = () => {
     const email = targetUser[0] && targetUser[0].email
-    const url = `http://127.0.0.1:8000/api/auth/logout/${email}`
+    const url = `https://saeedwebdev.ir/api/auth/logout/${email}`
     async function handleLogoutFunc() {
       const result = await logout(url)
       if(result) {
@@ -44,8 +44,8 @@ const Header = () => {
 
   const handleSetAvatar = (e) => {
     const media = e.target.files[0]
-    const url = 'http://127.0.0.1:8000/i'
-    const url2 = `http://127.0.0.1:8000/api/users/${targetUser[0].id}`
+    const url = 'https://saeedwebdev.ir/i'
+    const url2 = `https://saeedwebdev.ir/api/users/${targetUser[0].id}`
     const fd = new FormData()
     fd.append('image', media)
     async function setAvatarFunc() {

@@ -1,13 +1,10 @@
 import React, { useRef, useState } from 'react'
-import { useDispatch } from 'react-redux'
 import { selectOptionsMounths } from '../../assets/data/data'
 import { BiSolidErrorAlt } from 'react-icons/bi'
 import { signup } from '../../services/user'
-import { setToken } from '../../store/UiSlice'
 
 const Signup = ({setShowSignUp}) => {
   const ref = useRef()
-  const dispatch = useDispatch()
   const [firstNameS, setFirstNameS] = useState(false)
   const [lastNameS, setLastNameS] = useState(false)
   const [emailS, setEmailS] = useState(false)

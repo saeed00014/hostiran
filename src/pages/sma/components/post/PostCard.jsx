@@ -68,7 +68,7 @@ const PostCard = ({post, edition, handleSetCommentCall, targetUser}) => {
 
   useEffect(() => {
     async function getAllPostCommentsFunc() {
-      const url2 = `https://saeedwebdev.ir/comments/q/${post.id}`
+      const url2 = `https://saeedwebdev.ir/api/comments/q/${post.id}`
       const allCommnetQ = await getAllComment(url2)
       if(allCommnetQ) {
         setCommentQ(allCommnetQ)
@@ -82,7 +82,7 @@ const PostCard = ({post, edition, handleSetCommentCall, targetUser}) => {
 
   const handleDelete = () => { 
     async function handledeleteDataUi() {
-      const result = await deletePost(`https://saeedwebdev.ir/posts/${post.id}`)
+      const result = await deletePost(`https://saeedwebdev.ir/api/posts/${post.id}`)
       if(result) {
         dispatch(DeletePost(post))
       }
@@ -91,8 +91,8 @@ const PostCard = ({post, edition, handleSetCommentCall, targetUser}) => {
   }
   
   const handleLike = () => {
-    const url = `https://saeedwebdev.ir/likes`
-    const url2 = `https://saeedwebdev.ir/likes/${loginUser[0].id}=${post.id}`
+    const url = `https://saeedwebdev.ir/api/likes`
+    const url2 = `https://saeedwebdev.ir/api/likes/${loginUser[0].id}=${post.id}`
     async function createGetLike() {
       const result = await createLike(url, post.id, loginUser[0].id)
       if(result) {
@@ -105,8 +105,8 @@ const PostCard = ({post, edition, handleSetCommentCall, targetUser}) => {
   }
   
   const handleDisLike = () => {
-    const deleteUrl = `https://saeedwebdev.ir/likes/${loginUser[0].id}=${post.id}`
-    const url = `https://saeedwebdev.ir/likes/${loginUser[0].id}=${post.id}`
+    const deleteUrl = `https://saeedwebdev.ir/api/likes/${loginUser[0].id}=${post.id}`
+    const url = `https://saeedwebdev.ir/api/likes/${loginUser[0].id}=${post.id}`
     async function deleteGetLike() {
       const result = await deleteLike(deleteUrl)
       if(result) {

@@ -11,7 +11,7 @@ const Body = () => {
   const allPosts = ui.allPosts
   useEffect(() => {
     allPosts && allPosts.map(async (post) => {
-      const url = `https://saeedwebdev.ir/users/${post && post.user_id}`
+      const url = `https://saeedwebdev.ir/api/users/${post && post.user_id}`
       const targetUser = await getAllTargetUserPost(url)
       if(targetUser) {
         dispatch(setAllUserAddedPost(targetUser[0]))
