@@ -20,7 +20,7 @@ const SendBar = ({post}) => {
     e.preventDefault()
     setState('')
     const text = ref.current.text.value
-    const url = 'http://127.0.0.1:8000/api/comments'
+    const url = 'https://saeedwebdev.ir/api/comments'
     async function setNewComment() {
       const result = await createComment(url, text, post.id, loginUser[0].id)
       if(result) {

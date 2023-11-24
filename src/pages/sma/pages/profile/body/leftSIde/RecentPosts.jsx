@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { useSelector } from 'react-redux'
 
 const RecentPosts = () => {
-  const [image, setImage] = useState(null)
   const ui = useSelector((state) => state.ui)
   const allTargetUserPosts = ui.alltargetUserPosts
   return (

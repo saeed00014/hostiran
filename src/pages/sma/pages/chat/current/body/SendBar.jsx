@@ -20,7 +20,7 @@ const SendBar = ({targetUser}) => {
     e.preventDefault()
     setState('')
     const text = ref.current.text.value
-    const url = 'http://127.0.0.1:8000/api/messages'
+    const url = 'https://saeedwebdev.ir/api/messages'
     async function setNewMessage() {
       const result = (targetUser[0] && loginUser[0]) &&  await createMessage(url, loginUser[0].id, targetUser[0].id, text)
       if(result) {

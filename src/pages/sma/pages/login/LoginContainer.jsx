@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Login from './Login'
-import HocWraper from '../../components/Hoc'
 import SignupContainer from './SignupContainer'
 
 const LoginContainer = () => {

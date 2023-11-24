@@ -16,7 +16,7 @@ const ProfilePage = () => {
   
   useEffect(() => {
     async function targetUserfetch() {
-      const targetUser = await getTargetUser(`http://127.0.0.1:8000/api/users/${id}`)
+      const targetUser = await getTargetUser(`https://saeedwebdev.ir/api/users/${id}`)
       if(targetUser) {
         setTargetUserST(targetUser)
         dispatch(setTargetUser(targetUser))
@@ -28,7 +28,7 @@ const ProfilePage = () => {
   useEffect(() => {
     async function getAllTargetUserPostFunc() {
       if(targetUser[0]) {
-        const allTargetUserPosts = await getAllTargetUserPost(`http://127.0.0.1:8000/api/posts/${targetUser[0].id}`)
+        const allTargetUserPosts = await getAllTargetUserPost(`https://saeedwebdev.ir/api/posts/${targetUser[0].id}`)
         if(allTargetUserPosts) {
           dispatch(setAllTargetUserPost(allTargetUserPosts))
         }

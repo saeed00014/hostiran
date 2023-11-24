@@ -9,7 +9,7 @@ const FollowBottun = ({targetUser}) => {
   const loginUser = ui.loginUser
   
   useEffect(() => {
-    const url = ((targetUser[0] && loginUser[0]) && `http://127.0.0.1:8000/api/friends/f/${loginUser[0].id}=${targetUser[0].id}`)
+    const url = ((targetUser[0] && loginUser[0]) && `https://saeedwebdev.ir/api/friends/f/${loginUser[0].id}=${targetUser[0].id}`)
     async function getOneFriendFunc() {
       const result = (targetUser[0] && loginUser[0]) && await getOneFriend(url)
       if(result[0] && result[0].friend_id == targetUser[0].id) {
@@ -20,7 +20,7 @@ const FollowBottun = ({targetUser}) => {
   }, [])
 
   const handleFollow = () => {
-    const url = 'http://127.0.0.1:8000/api/friends'
+    const url = 'https://saeedwebdev.ir/api/friends'
     const user_id = loginUser[0] && loginUser[0].id
     const friend_id = targetUser[0] && targetUser[0].id
     async function createGetFriendFunc() {
@@ -33,7 +33,7 @@ const FollowBottun = ({targetUser}) => {
   }
 
   const handleUnFollow = () => {
-    const url = `http://127.0.0.1:8000/api/friends/${targetUser[0] && targetUser[0].id}`
+    const url = `https://saeedwebdev.ir/api/friends/${targetUser[0] && targetUser[0].id}`
     async function createGetFriendFunc() {
       const result = await deleteFriend(url)
       if(result) {

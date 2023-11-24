@@ -34,13 +34,13 @@ const PostMaker = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const url2 = 'http://127.0.0.1:8000/i'
+    const url2 = 'https://saeedwebdev.ir/i'
     const user_id = loginUser[0].id
     const text = ref.current.text.value
     const like = 0
     const fd = new FormData()
     fd.append('image', media)
-    const url = 'http://127.0.0.1:8000/api/posts'
+    const url = 'https://saeedwebdev.ir/api/posts'
     async function createGetPost() {
       if(media) {
         const result = await createPostMedia(url2, fd)

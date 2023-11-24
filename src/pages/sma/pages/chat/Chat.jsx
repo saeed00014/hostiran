@@ -18,7 +18,7 @@ const ChatPage = () => {
 
   useEffect(() => {
     async function targetUserfetch() {
-      const url = `http://127.0.0.1:8000/api/users/${id}`
+      const url = `https://saeedwebdev.ir/api/users/${id}`
       const targetUser = await getTargetUser(url)
       if(targetUser) {
         setTargetUserst(targetUser)
@@ -30,7 +30,7 @@ const ChatPage = () => {
   
   useEffect(() => {
     async function getAllMessagesFunc() {
-      const allMessages = (targetUserSt[0] && loginUser[0]) && await getOneMessage(`http://127.0.0.1:8000/api/messages/${loginUser[0].id}=${targetUserSt[0].id}`)
+      const allMessages = (targetUserSt[0] && loginUser[0]) && await getOneMessage(`https://saeedwebdev.ir/api/messages/${loginUser[0].id}=${targetUserSt[0].id}`)
       if(allMessages) {
           dispatch(setAllMessage(allMessages))
         }

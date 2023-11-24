@@ -33,7 +33,7 @@ const Signup = ({setShowSignUp}) => {
     const gender = ref.current.gender.value
     const password = ref.current.password.value
     const confirmPassword = ref.current.confirmPassword.value
-    const url = 'http://127.0.0.1:8000/api/auth/signup'
+    const url = 'https://saeedwebdev.ir/api/auth/signup'
     if(text == 'submit') {
       if(password == confirmPassword) { setConfirmPasswordMessage(false) }
       if(password !== confirmPassword) { setConfirmPasswordMessage(true) }

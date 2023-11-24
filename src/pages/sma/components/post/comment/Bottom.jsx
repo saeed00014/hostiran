@@ -12,7 +12,7 @@ const CommentBottom = ({post, targetUser}) => {
   const loginUser = ui.loginUser
   const dispatch = useDispatch()
   useEffect(() => {
-    const url = `http://127.0.0.1:8000/api/comments/${post.id}`
+    const url = `https://saeedwebdev.ir/api/comments/${post.id}`
     async function getAllCommnets() {
       const data = await getAllComment(url)
       if(data) {

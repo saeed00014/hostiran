@@ -40,7 +40,7 @@ function AppSma() {
   const loginUser = ui.loginUser
   
     useEffect(() => {
-      const url = 'http://127.0.0.1:8000/api/auth/vt'
+      const url = 'https://saeedwebdev.ir/api/auth/vt'
       async function validateTokenFunc() {
         const result = await validateToken(url, accessToken)
         if(result == 'wrong username or password') {
@@ -56,7 +56,7 @@ function AppSma() {
 
   useEffect(() => {
     async function getAllUsersFunc() {
-      const allLoginUser = await getAllUser('http://127.0.0.1:8000/api/users')
+      const allLoginUser = await getAllUser('https://saeedwebdev.ir/api/users')
       if(allLoginUser) {
         dispatch(setAllLoginUser(allLoginUser))
         dispatch(setAllSuggestedFriends(allLoginUser))
@@ -67,7 +67,7 @@ function AppSma() {
   
   useEffect(() => {
     async function getAllOnlineFriendsFunc() {
-      const url = `http://127.0.0.1:8000/api/friends/${loginUser[0] && loginUser[0].id}`
+      const url = `https://saeedwebdev.ir/api/friends/${loginUser[0] && loginUser[0].id}`
       const allOnlineFriends = loginUser[0] && await getAllFriend(url)
       console.log(allOnlineFriends)
       if(allOnlineFriends) {
@@ -79,7 +79,7 @@ function AppSma() {
 
   useEffect(() => {
     async function allPost() {
-      const allPost = await getAllPost('http://127.0.0.1:8000/api/posts')
+      const allPost = await getAllPost('https://saeedwebdev.ir/api/posts')
       dispatch(setAllPost(allPost))
     }
     allPost()
