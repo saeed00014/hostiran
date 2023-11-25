@@ -93,10 +93,9 @@ const login = (req, res) => {
   
 const logout = (req, res) => {
   const command = "UPDATE users SET `remember_token` = '' WHERE email = ?"
-  console.log(req.params[0])
   db.query(command, [req.params[0]], (err, data) => {
     if(err) return res.status(500).json(err);
-    if(data) return res.status(200).json('signed out');
+    if(data) return res.status(200).json('signed out', req.params[0]);
   })
 }
 
