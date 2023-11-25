@@ -22,18 +22,12 @@ const app = express();
 //middlewares
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Credentials", true);
-  rea.header('Access-Control-Allow-Origin', 'http://localhost:5173');
+  rea.header('Access-Control-Allow-Origin');
   next();
 });
 app.use(express.json());
 app.use(bodyParser.json());
-const cors = require('cors');
-const corsOptions ={
-    origin:'http://localhost:5173', 
-    credentials:true,            //access-control-allow-credentials:true
-    optionSuccessStatus:200
-}
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(cookieParser());
 
 const storage = multer.diskStorage({
