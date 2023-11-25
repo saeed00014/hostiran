@@ -26,9 +26,13 @@ app.use((req, res, next) => {
 });
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(
-  cors(['*'])
-);
+const cors = require('cors');
+const corsOptions ={
+    origin:'*', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
 app.use(cookieParser());
 
 const storage = multer.diskStorage({
