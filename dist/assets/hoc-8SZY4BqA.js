@@ -1,1 +1,0 @@
-import{j as t,d as r}from"./index-nN682t4v.js";const c=(e,s)=>function(){return t.jsx("section",{className:`${r.paddingX} flex items-center justify-center w-full md:mt-[127px] mt-[71px] ${s=="product"?"!bg-g_Text_White":""}`,children:t.jsx(e,{})})};export{c as S};

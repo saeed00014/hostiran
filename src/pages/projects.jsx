@@ -16,7 +16,6 @@ const ProjectPage = () => {
     speed: 350
   }
 
-
   return (
     <section className='flex items-start justify-center min-h-screen pt-[80px] pb-12 w-screen'>
       <div className='flex flex-col w-full max-w-[1400px] lg:gap-20 md:gap-16 gap-8 lg:pt-10 md:pt-8 pt-6'>
@@ -33,7 +32,10 @@ const ProjectPage = () => {
             return (
               <Tilt options={options} key={project.id} className='flex max-w-[800px]'>
                 <div className='relative flex flex-col justify-between md:p-4 p-2 bg-g_Background_Shaded rounded-[15px] gap-4'>
-                  <img src={project.img} alt="project intro image" className='rounded-[10px]' />
+                  <div style={{backgroundImage: `url(${project.bgImg})`}} className='relative w-full h-full bg-no-repeat bg-contain  rounded-[10px]'>
+                    <img src={project.bgImg} alt="project intro image" className='invisible w-full h-full' />
+                    <img loading='lazy' src={project.img} alt="project intro image" className='absolute top-0 left-0 w-full h-full rounded-[10px]' />
+                  </div>
                   <div className='flex flex-col gap-0'>
                     <div className='flex justify-end w-full md:text-[1.3rem] text-[1.1rem]'>
                       <span>{project.nameE}</span>

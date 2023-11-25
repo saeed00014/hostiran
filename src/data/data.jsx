@@ -33,11 +33,13 @@ export const h1 = {
 
 import AjorPlus from '../assets/images/Ajorplushdash.png'
 import amashop from '../assets/images/amashop.jpg'
+import amashopblur from '../assets/images/amashopblur.jpg'
 
 export const projects = [
   {
     id: 1,
     img: amashop,
+    bgImg: amashopblur,
     name: 'اپلیکیشن فروشگاهی',
     nameE: '(Amashop)',
     dis: 'اپلیکیشن Amashop یک اپ فروشگاهی front-end است که دارای ui کاملا ریسپانسیو برای همه سایزها وسیله Tailwind css است و همچنین دارای state management system redux و تغیرات لحظه ای در ui است  بخش سبد خرید به صورت کامل قرار داده شده که تمام نیازهای سبد خرید یک فروشگاه رو پاسخ گو است .',
@@ -58,6 +60,7 @@ export const projects = [
   {
     id: 2,
     img: AjorPlus,
+    bgImg: amashopblur,
     name: 'اپلیکیشن شبکه اجتماعی',
     nameE: '(SMA)',
     dis: 'اپلیکیشن SMA یک شبکه اجتماعی fullstack است بخش فرانت دارای ui کاملا ریسپانسیو برای همه سایزها به وسیله Tailwind css است و همچنین دارای state management system redux و تغیرات لحظه ای در ui است و از rest-api جهت ارتباط با بک اند استفاده میکند بک اند با ساخته شده و Node JS و Express Js و mysql database دارای امکان signup و login و logout ساخت پست لایک کردن و اضافه کردن کامنت برای پست ها توسط همه کاربران به صورت کاملا جداگانه امکان ارسال پیام و follow و unfollow کردن و مشاهده پروفایل همه کاربران',
