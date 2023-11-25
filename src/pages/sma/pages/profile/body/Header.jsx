@@ -34,10 +34,8 @@ const Header = () => {
     const email = targetUser[0] && targetUser[0].email
     const url = `https://saeedwebdev.ir/api/auth/logout/${email}`
     async function handleLogoutFunc() {
-      const result = await logout(url)
-      console.log(result)
+      const result = email && await logout(url)
       if(result) {
-        location.reload('/')
         location.reload('/')
       }
     }
