@@ -22,7 +22,7 @@ const app = express();
 //middlewares
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Credentials", true);
-  rea.header('Access-Control-Allow-Origin');
+  res.header('Access-Control-Allow-Origin');
   next();
 });
 app.use(express.json());
