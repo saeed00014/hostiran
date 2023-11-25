@@ -48,7 +48,6 @@ function AppSma() {
         }
         if(result && result !== 'wrong username or password') {
           dispatch(setToken(result))
-          location.reload()
         }
       }
       validateTokenFunc()
