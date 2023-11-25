@@ -37,8 +37,8 @@ const Header = () => {
       const result = await logout(url)
       console.log(result)
       if(result) {
-        location.reload()
-        location.reload()
+        location.reload('/')
+        location.reload('/')
       }
     }
     handleLogoutFunc()
