@@ -35,8 +35,10 @@ const Header = () => {
     const url = `https://saeedwebdev.ir/api/auth/logout/${email}`
     async function handleLogoutFunc() {
       const result = await logout(url)
+      console.log(result)
       if(result) {
-        location.reload('/')
+        location.reload()
+        location.reload()
       }
     }
     handleLogoutFunc()
@@ -93,9 +95,9 @@ const Header = () => {
           </button>
         </>
         : <>
-        {targetUser && 
-          <FollowBottun targetUser={targetUser}/>
-        }
+          {targetUser && 
+            <FollowBottun targetUser={targetUser}/>
+          }
           <button className='md:flex hidden md:px-5 px-2 pt-1 pb-2 rounded-[.4rem] text-white bg-green-500'>شبکهای اجتماعی</button>
           <a href={`/sma/chat/${targetUser[0] && targetUser[0].id}`} className='md:px-5 px-2 pt-1 pb-2 rounded-[.4rem] text-white bg-green-500'>ارسال پیام</a>
         </>
