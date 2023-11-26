@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Massege from './Message'
 import PreProfile from './PreProfile'
 import { useSelector } from 'react-redux'
+import Loading from '../../../../components/loading'
 
 const MassegeContainer = ({targetUser, loginUser}) => {
   const ui = useSelector((state) => state.ui)
@@ -25,7 +26,10 @@ const MassegeContainer = ({targetUser, loginUser}) => {
 
   return (
     <div className='flex flex-col w-full gap-4 pt-4 pb-56'>
-      {!allMessages[0] ? <PreProfile targetUser={targetUser} avatar={avatar} /> :
+      {allMessages[0] == '' && <Loading />}
+      {allMessages[0] == '' ? ''
+      : allMessages[0] == 'no message' ? 
+        <PreProfile targetUser={targetUser} avatar={avatar} /> :
         allMessages.map((message) => {
           return ( 
             <Massege message={message} loginUser={loginUser} targetUser={targetUser} avatar={avatar}/>

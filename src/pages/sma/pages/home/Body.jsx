@@ -27,12 +27,17 @@ const Body = () => {
         <PostMaker /> 
       </div>
       <div className='flex flex-col-reverse gap-6 '>
-        {allPosts && allPosts.map((post) => {
-            const targetUser = allUserAddedPost[0] && allUserAddedPost.find((user) => user.id == post.user_id)
+        {allPosts[0] == '' ? '' :
+          allPosts[0] !== 'no posts' ?
+          allPosts.map((post) => {
+            const targetUser = allUserAddedPost[0] && allUserAddedPost.find((user) => user && user.id == post.user_id)
             return (
               targetUser && <PostCard post={post} targetUser={targetUser} />
             )
-        })}
+          }) : <div className='flex justify-center w-full'>
+            <div className='flex justify-center py-2 pb-4 px-3 w-full shadow-3xl rounded-[.6rem] max-w-[800px] bg-white'>هیچ پستی وجود ندارد</div>
+          </div>
+        }
       </div>     
     </div>
   )  

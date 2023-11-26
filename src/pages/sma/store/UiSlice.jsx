@@ -8,8 +8,8 @@ const initialState = {
   targetUser: '',
   isMyProfile: '',
   allLoginUsers: [],
-  allMessages: [],
-  allPosts: [],
+  allMessages: [''],
+  allPosts: [''],
   allUserAddedPost: [],
   alltargetUserPosts: [''],
   myOnlineFriends: [],
@@ -72,11 +72,13 @@ const UiSlice = createSlice({
     },
     setAllMessage(state, action) {
       const allChat = action.payload
-      state.allMessages = allChat
+      allChat ? state.allMessages = allChat
+      : state.allMessages = ['no message']
     },
     setAllPost(state, action) {
       const allPost = action.payload
-      state.allPosts = allPost
+      allPost[0] ? state.allPosts = allPost
+      : state.allPosts = ['no posts']
     },
     setAllUserAddedPost(state, action) {
       const allUserAddedPost = action.payload
