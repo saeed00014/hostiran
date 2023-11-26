@@ -30,7 +30,7 @@ const Body = () => {
         {allPosts && allPosts.map((post) => {
             const targetUser = allUserAddedPost[0] && allUserAddedPost.find((user) => user.id == post.user_id)
             return (
-              <PostCard post={post} targetUser={targetUser} />
+              targetUser && <PostCard post={post} targetUser={targetUser} />
             )
         })}
       </div>     

@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-import { lazy, useEffect } from "react"
+import { Suspense, lazy, useEffect } from "react"
 
 import { setAllLoginUser, setAllOnlineFriends, setAllPost, setAllSuggestedFriends, setToken } from "./store/UiSlice"
 import { getAllPost } from "./services/post"
@@ -8,6 +8,8 @@ import { getAllUser, validateToken } from "./services/user"
 import { getAllFriend } from "./services/friend"
 
 import Header from './components/Header'
+import Loading from './components/loading'
+
 const LoginContainer = lazy(() => {
   return new Promise(resolve => {
     setTimeout(() => resolve(import("./pages/login/LoginContainer")), 0);
@@ -85,21 +87,23 @@ function AppSma() {
 
   return (
     <BrowserRouter>
+    <Suspense fallback={<Loading />}>
     <div  style={{direction: 'rtl'}} className="">
       {accessToken !== '' && <Header />}
-      <Routes>
-        {accessToken == '' ? <>
-          <Route path="sma/*" element={<LoginContainer />} />
-          <Route path="sma/resume" element={<Resume />} />
-        </>  :  <>
-          <Route path="sma/" element={<HomePage />} />
-          <Route path="sma/profile/*" element={<ProfilePage />} />
-          <Route path="sma/chat/*" element={<ChatPage />} />
-          <Route path="sma/login" element={<LoginContainer />} />
-        </>  
-        }
-      </Routes>
+        <Routes>
+          {accessToken == '' ? <>
+            <Route path="sma/*" element={<LoginContainer />} />
+            <Route path="sma/resume" element={<Resume />} />
+          </>  :  <>
+            <Route path="sma/" element={<HomePage />} />
+            <Route path="sma/profile/*" element={<ProfilePage />} />
+            <Route path="sma/chat/*" element={<ChatPage />} />
+            <Route path="sma/login" element={<LoginContainer />} />
+          </>  
+          }
+        </Routes>
     </div>
+    </Suspense>
     </BrowserRouter>
   )
 }

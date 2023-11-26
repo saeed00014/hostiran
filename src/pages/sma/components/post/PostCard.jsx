@@ -16,6 +16,7 @@ import Comment from './comment/Comment'
 import SharePost from './SharePost'
 import { getAllComment } from '../../services/comment'
 import NotIntrest from './NotIntrest'
+import { Link } from 'react-router-dom'
 
 const PostCard = ({post, edition, handleSetCommentCall, targetUser}) => {
   const [image, setImage] = useState(null)
@@ -23,7 +24,7 @@ const PostCard = ({post, edition, handleSetCommentCall, targetUser}) => {
   const [notIntrest, setNotIntrest] = useState(false)
   const [sharePost, setSharePost] = useState(false)
   const [comment, setComment] = useState(false)
-  const [commentQ, setCommentQ] = useState('')
+  const [commentQuantity, setCommentQuantity] = useState('')
   const [likes, setLikes] = useState(null)
   const [isMylike, setIsMyLike] = useState(null)
   const dispatch = useDispatch()
@@ -71,10 +72,10 @@ const PostCard = ({post, edition, handleSetCommentCall, targetUser}) => {
       const url2 = `https://saeedwebdev.ir/api/comments/q/${post.id}`
       const allCommnetQ = await getAllComment(url2)
       if(allCommnetQ) {
-        setCommentQ(allCommnetQ)
+        setCommentQuantity(allCommnetQ)
       }
       if(allCommnetQ == 0) {
-        setCommentQ(0)
+        setCommentQuantity(0)
       }
     }
     getAllPostCommentsFunc()
@@ -135,7 +136,7 @@ const PostCard = ({post, edition, handleSetCommentCall, targetUser}) => {
       <div className={`flex flex-col  w-full ${edition ? '' : 'md:rounded-[.6rem] rounded-[.3rem] shadow-3xl' } max-w-[800px] bg-white`}>
         {edition !== 'comment' && 
           <header className='flex justify-between md:pt-3 pt-2 md:px-4 px-2 h-[48px] md:mb-3 mb-1 gap-3'>
-            <a href={`/sma/profile/${targetUser && targetUser.id}`} className='flex w-full md:gap-3 gap-2 cursor-pointer'>
+            <Link to={`/sma/profile/${targetUser && targetUser.id}`} className='flex w-full md:gap-3 gap-2 cursor-pointer'>
               <div className='w-10 h-10 min-w-[40px]'>
                 <img src={avatar ? avatar : defaultAvatar} alt="profile picture" className='object-cover h-full w-full rounded-full' />
               </div>
@@ -145,7 +146,7 @@ const PostCard = ({post, edition, handleSetCommentCall, targetUser}) => {
                   <small>@{targetUser && targetUser.username}</small>
                 </div>
               </div>
-            </a>
+            </Link>
             <div className='flex'>
               <button className='flex items-center justify-center md:text-2xl text-[1.7rem] min-w-[40px] min-h-[40px] rounded-full hover:bg-bg-hover'>
                 <BsThreeDots />
@@ -168,11 +169,11 @@ const PostCard = ({post, edition, handleSetCommentCall, targetUser}) => {
         </div>
         <footer className='flex flex-col md:px-4 px-2'>
           <div className='flex items-center justify-between w-full py-2 border-b-[2px]'>
-            <div className='flex gap-1 md:mt-0 mt-1 md:text-[1rem] text-[.9rem]'>
+            <div className='flex gap-1 h-[24px] md:mt-0 mt-1 md:text-[1rem] text-[.9rem]'>
               <span>نظرات</span>
-              <span>{commentQ && commentQ}</span>
+              <span>{commentQuantity && commentQuantity}</span>
             </div>
-            <button onClick={isMylike && isMylike == 1 ? handleDisLike : handleLike} className='relative flex'>
+            <button onClick={isMylike && isMylike == 1 ? handleDisLike : handleLike} className='relative flex h-[24px]'>
               <span className='md:pl-12 pl-11'>{likes && likes}</span>
               <i className={`absolute left-5 md:top-0 top-[.1rem] flex items-center justify-center md:text-[.8rem] text-[.7rem] bg-red-400 [&>*]:text-white p-1 rounded-full border-2 border-white`}><AiFillHeart /></i>
               <i className={`absolute left-0 md:top-0 top-[.1rem] flex items-center justify-center md:text-[.8rem] text-[.7rem] bg-blue-400 text-white p-1 rounded-full border-2 border-white`}><AiFillLike /></i>
@@ -200,7 +201,7 @@ const PostCard = ({post, edition, handleSetCommentCall, targetUser}) => {
       {notIntrest && 
         <NotIntrest handleNotIntrest={handleNotIntrest} />
       }
-      {comment && edition !== 'comment' && 
+      {comment && targetUser && edition !== 'comment' && 
         <Comment post={post} handleSetComment={handleSetComment} targetUser={targetUser}/>
       }
     </div>

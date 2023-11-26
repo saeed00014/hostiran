@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import defaultAvatar from '../../../assets/images/testImg.png'
 import FollowBottun from '../../../components/FollowBottun'
+import { Link } from 'react-router-dom'
 
 const Suggestion = ({targetUser}) => {
   const [avatar, setAvatar] = useState(null)
@@ -23,7 +24,7 @@ const Suggestion = ({targetUser}) => {
   return (
     <div className='flex justify-between w-full'>
       <div className='flex items-center justify-between w-full py-2 md:px-3 px-2 gap-1 hover:bg-bg-hover'>
-        <a href={`/sma/profile/${targetUser.id}`} className='flex items-center justify-start gap-2 w-full overflow-hidden'>
+        <Link to={`/sma/profile/${targetUser.id}`} className='flex items-center justify-start gap-2 w-full overflow-hidden'>
           <div className='md:w-[50px] md:min-w-[50px] md:h-[50px] w-[45px] min-w-[45px] h-[45px] bg-white rounded-full'>
             <img src={avatar ? avatar : defaultAvatar} alt="" className='object-cover h-full w-full rounded-full'/>
           </div>
@@ -31,7 +32,7 @@ const Suggestion = ({targetUser}) => {
             <span className='overflow-hidden min-w-max'>{targetUser && (targetUser.firstName + ' ' + targetUser.lastName)}</span>
             <span>@{targetUser.username}</span>
           </div>
-        </a>
+        </Link>
         <FollowBottun targetUser={[targetUser]} />
       </div>
     </div>

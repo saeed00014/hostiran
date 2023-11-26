@@ -11,7 +11,7 @@ const PreProfile = ({targetUser, avatar}) => {
       </div>
       <div className='flex flex-col gap-4'>
         <span className='flex justify-center'>{targetUser && (targetUser[0].firstName + ' ' + targetUser[0].lastName)}</span>
-        <a href={`/sma/profile/${targetUser && targetUser[0].id}`} className='flex py-2 px-4 bg-bg-hover rounded-[.5rem]'>View Profile</a>
+        <Link to={`/sma/profile/${targetUser && targetUser[0].id}`} className='flex py-2 px-4 bg-bg-hover rounded-[.5rem]'>View Profile</Link>
       </div>
      </div>
   )

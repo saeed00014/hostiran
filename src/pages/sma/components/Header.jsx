@@ -1,6 +1,7 @@
 import React from 'react'
-
 import { Link } from 'react-router-dom'
+import { useMemo } from 'react';
+
 import { bottomHeaderLinks, mainHeaderLinks } from '../assets/data/data'
 import AcountInfo from './AcountInfo'
 import { useSelector } from 'react-redux'
@@ -18,7 +19,7 @@ const Header = () => {
           {mainHeaderLinks.map((link) => {
             return (
               <li className='group w-full xl:py-1'>
-                <Link to={link.path} className='flex items-center xl:justify-start justify-center w-full'>
+                <Link to='/sma' className='flex items-center xl:justify-start justify-center w-full'>
                   <div className='group flex items-center w-fit xl:py-3 xl:pr-3 xl:pl-6 pr-3 pl-3 py-3 rounded-full gap-3 group-hover:bg-bg-hover'>
                     <span className='text-3xl'>{link.icon}</span>
                     <span className='xl:flex hidden font-bold'>{link.name}</span>

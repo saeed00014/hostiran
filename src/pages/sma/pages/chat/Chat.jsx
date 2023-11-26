@@ -40,8 +40,12 @@ const ChatPage = () => {
 
   return (
     <section className='flex w-full max-h-screen min-h-screen overflow-hidden'>
-      <Suggested />
-      <Current targetUser={targetUserSt} loginUser={loginUser}/>
+      {targetUserSt && loginUser && 
+        <>
+          <Suggested />
+          <Current targetUser={targetUserSt} loginUser={loginUser}/>
+        </>
+      }
     </section>
   )
 }

@@ -20,7 +20,7 @@ const OnlineFriend = ({friend}) => {
   }, [friend])
 
   return (
-    <a href={`/sma/profile/${friend && friend.id}`} className='flex items-center w-full gap-3 py-2 md:px-3 px-2 hover:bg-bg-hover overflow-x-hidden'>
+    <Link to={`/sma/profile/${friend && friend.id}`} className='flex items-center w-full gap-3 py-2 md:px-3 px-2 hover:bg-bg-hover overflow-x-hidden'>
       <div className='relative md:w-[50px] md:h-[50px] w-[40px] h-[40px] bg-white rounded-full'>
         <img src={avatar ? avatar : defaultAvatar} alt="" className='object-cover md:min-w-[50px] md:min-h-[50px] min-w-[45px] min-h-[45px] rounded-full' />
         <span className='absolute flex items-center justify-center -right-1 -bottom-1 bg-white w-4 h-4 rounded-full'>
@@ -31,7 +31,7 @@ const OnlineFriend = ({friend}) => {
             <span className='overflow-hidden min-w-max'>{friend && (friend.firstName + ' ' + friend.lastName)}</span>
             <span>@{friend && friend.username}</span>
           </div>
-    </a>
+    </Link>
   )
 }
 

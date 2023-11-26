@@ -13,7 +13,7 @@ const message = ({message, loginUser, targetUser, avatar}) => {
       }
       <p className={`relative max-w-[22rem] px-3 py-2 rounded-[1.5rem] break-words ${message.user_id == (loginUser[0] && loginUser[0].id) && loginUser[0].id ? 'bg-blue-700 text-left text-white': 'bg-gray-300'}`}>
         {message.user_id == loginUser[0].id && 
-          <span className='absolute right-3 -top-4 min-w-max text-black text-[.7rem]'>{loginUser[0] && (loginUser[0].firstName + ' ' + loginUser[0].lastName)}</span>
+          <span className='absolute left-0 -top-4 min-w-max text-black text-[.7rem]'>{loginUser[0] && (loginUser[0].firstName + ' ' + loginUser[0].lastName)}</span>
         }
         {message.user_id !== loginUser[0].id && 
           <span className='absolute right-3 -top-4 min-w-max text-black text-[.7rem]'>{targetUser[0] && (targetUser[0].firstName + ' ' + targetUser[0].lastName)}</span>

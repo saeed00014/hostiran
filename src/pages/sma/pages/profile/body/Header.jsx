@@ -8,6 +8,7 @@ import FollowBottun from '../../../components/FollowBottun'
 import { getAllUserFollow } from '../../../services/friend'
 import { avatarUser, logout } from '../../../services/user'
 import { createPostMedia } from '../../../services/post'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   const [imageAddress, setImageAddress] = useState(null)
@@ -98,7 +99,7 @@ const Header = () => {
             <FollowBottun targetUser={targetUser}/>
           }
           <button className='md:flex hidden md:px-5 px-2 pt-1 pb-2 rounded-[.4rem] text-white bg-green-500'>شبکهای اجتماعی</button>
-          <a href={`/sma/chat/${targetUser[0] && targetUser[0].id}`} className='md:px-5 px-2 pt-1 pb-2 rounded-[.4rem] text-white bg-green-500'>ارسال پیام</a>
+          <Link to={`/sma/chat/${targetUser[0] && targetUser[0].id}`} className='md:px-5 px-2 pt-1 pb-2 rounded-[.4rem] text-white bg-green-500'>ارسال پیام</Link>
         </>
         }
       </div>

@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux'
 import { getTargetUser } from '../../services/user'
 import { setAllTargetUserPost, setTargetUser } from '../../store/UiSlice'
 import { getAllTargetUserPost } from '../../services/post'
+import Loading from '../../components/loading'
 
 const ProfilePage = () => {
   const [targetUser, setTargetUserST] = useState('')
@@ -39,8 +40,13 @@ const ProfilePage = () => {
 
   return (
     <section className='flex flex-col justify-start items-center w-full overflow-y-scroll md:pb-4 pb-16 max-h-screen h-full'>
-      <Header targetUser={targetUser} />
-      <Body targetUser={targetUser} />
+      {targetUser ?
+      <>
+        <Header targetUser={targetUser} />
+        <Body targetUser={targetUser} />
+      </> : 
+      <Loading />
+      }
     </section>
   )
 }

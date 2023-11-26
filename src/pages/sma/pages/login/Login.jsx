@@ -1,8 +1,10 @@
 import React, { useRef, useState } from 'react'
 import { login } from '../../services/user'
+import Loading from '../../components/loading'
 
 const Login = ({setShowSignUp}) => {
   const [loginErorrMessage, setLoginErorrMessage] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const ref = useRef()
 
@@ -11,9 +13,10 @@ const Login = ({setShowSignUp}) => {
     const email = ref.current.email.value
     const password = ref.current.password.value
     const url = 'https://saeedwebdev.ir/api/auth/login'
-    
+    setLoading(true)
     if(email == "" || password == "") {
       setLoginErorrMessage(true)
+      setLoading(false)
     }
     if(email !== "" && password !== "") {
       async function tokenMaker() {
@@ -26,6 +29,7 @@ const Login = ({setShowSignUp}) => {
         }
         if(!data) {
           setLoginErorrMessage(true)
+          setLoading(false)
         }
       }
       tokenMaker()
@@ -35,6 +39,7 @@ const Login = ({setShowSignUp}) => {
 
   return (
     <div className='flex flex-col gap-3 w-full bg-white shadow-3xl py-4 md:px-4 px-3 rounded-[.5rem] z-10 max-w-[392px]'>
+      {loading && <Loading />}
       <form onSubmit={(e) => handleSubmit(e)} ref={ref} className='flex flex-col gap-3 w-full [&>input]:bg-bg-hover [&>input]:h-[52px] [&>input]:w-full [&>input]:max-w-[368px] [&>input]:px-3 [&>input]:pb-1'>
         <input type="name" id='email' name='email' placeholder='ایمیل'/>
         <input id='password' name='password' type='password' placeholder='رمز عبور'/>

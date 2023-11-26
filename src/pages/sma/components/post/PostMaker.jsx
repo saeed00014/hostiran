@@ -8,10 +8,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setAllPost, setOneTargetUserPost } from '../../store/UiSlice'
 
 import defaultAvatar from '../../assets/images/testImg.png'
+import Loadingb from '../loadingb'
 
 const PostMaker = () => {
   const [avatar, setAvatar] = useState('')
   const [media, setMedia] = useState('')
+  const [loadingSend, setLoadingSend] = useState(false)
   const dispatch = useDispatch()
   const ref = useRef()
   const ui = useSelector((state) => state.ui)
@@ -34,6 +36,7 @@ const PostMaker = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setLoadingSend(true)
     const url2 = 'https://saeedwebdev.ir/i'
     const user_id = loginUser[0].id
     const text = ref.current.text.value
@@ -50,6 +53,7 @@ const PostMaker = () => {
             dispatch(setOneTargetUserPost(post))
             const newAllPost = await getAllPost(url)
             dispatch(setAllPost(newAllPost))
+            setLoadingSend(false)
           }
         }
       }
@@ -60,7 +64,7 @@ const PostMaker = () => {
           dispatch(setOneTargetUserPost(post))
           const newAllPost = await getAllPost(url)
           dispatch(setAllPost(newAllPost))
-          setImageAdrress(null)
+          setLoadingSend(false)
         }
         
       }
@@ -115,7 +119,12 @@ const PostMaker = () => {
               </div>
             </div>
             <div className='flex justify-end w-[30%]'>
-              <div className='bg-green-500 hover:bg-green-600 rounded-[.4rem] text-white font-semibold'>
+              <div className='flex items-center bg-green-500 hover:bg-green-600 rounded-[.4rem] text-white font-semibold'>
+                {loadingSend && 
+                  <span className='md:pr-4 pr-[.7rem]'>
+                    <Loadingb />
+                  </span>
+                }
                 <input type='submit' name='submit' value='اشتراک' className='cursor-pointer md:py-2 py-[.4rem] md:px-4 px-[.7rem] md:text-[1rem] text-[.9rem]' />
               </div>
             </div>

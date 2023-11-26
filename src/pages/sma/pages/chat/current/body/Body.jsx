@@ -8,7 +8,7 @@ const Body = ({targetUser, loginUser}) => {
       <div className='flex h-full overflow-y-scroll'>
         <MassegeContainer targetUser={targetUser} loginUser={loginUser}/>
       </div>
-      <div className='sticky md:bottom-0 bottom-[60px] flex items-center justify-center h-fit bg-bg-theme-body py-3'>
+      <div className='sticky md:bottom-0 bottom-[60px] flex items-center justify-center h-fit py-3'>
         <SendBar targetUser={targetUser} />
       </div>
     </div>
