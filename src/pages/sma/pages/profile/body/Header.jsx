@@ -18,6 +18,7 @@ const Header = () => {
   const ui = useSelector((state) => state.ui)
   const isMyProfile = ui.isMyProfile
   const targetUser = ui.targetUser
+  const loginUser = ui.loginUser
 
   useEffect(() => {
     const url = `https://saeedwebdev.ir/api/friends/q/${targetUser[0] && targetUser[0].id}`
@@ -84,7 +85,8 @@ const Header = () => {
         <img src={defaultAvatar} alt="" className='object-cover h-full w-full'/>
       </div>
       <div className='flex items-center justify-end w-full lg:gap-5 gap-2 py-5 lg:px-8 md:px-4 px-2'>
-        {isMyProfile ? 
+        {isMyProfile == '' ? '' 
+        : isMyProfile !== loginUser[0].id ?  
         <>
           <button className='flex md:px-5 px-2 pt-1 pb-2 rounded-[.4rem] text-white bg-green-500 gap-2'>
             <i className='text-[1.2rem] pt-1'><BiSolidEdit /></i>
@@ -104,16 +106,15 @@ const Header = () => {
         }
       </div>
       <div className='flex flex-col'>
-        {isMyProfile &&
+      {isMyProfile == '' ? '' 
+        : isMyProfile !== loginUser[0].id ? 
         <>
           <label htmlFor='image' className='absolute xl:right-20 lg:right-8 md:right-4 right-2 md:bottom-10 bottom-14 w-32 h-32 border-4 border-white rounded-full cursor-pointer z-40'>
             <img src={avatar ? avatar : defaultAvatar} alt="" className='object-cover bg-white  h-full w-full rounded-full'/>
             <span className='absolute right-0 bottom-0 text-2xl'><BiSolidEdit /></span>
           </label>
           <input onChange={(e) => handleSetAvatar(e)} className='hidden' type="file" name='image' id='image' accept=".jpg, .jpeg, .png"  />
-        </>
-        }
-        {!isMyProfile &&
+        </> :
         <div className='absolute xl:right-20 lg:right-8 md:right-4 right-2 md:bottom-10 bottom-14 w-32 h-32 border-4 border-white bg-white rounded-full z-50'>
           <img src={avatar ? avatar : defaultAvatar} alt="" className='object-cover h-full w-full rounded-full'/>
         </div>

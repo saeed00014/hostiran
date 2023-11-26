@@ -6,12 +6,12 @@ const initialState = {
   loginUser: localStorage.getItem('user') ? 
   JSON.parse(localStorage.getItem('user')) : '',
   targetUser: '',
-  isMyProfile: false,
+  isMyProfile: '',
   allLoginUsers: [],
   allMessages: [],
   allPosts: [],
   allUserAddedPost: [],
-  alltargetUserPosts: [],
+  alltargetUserPosts: [''],
   myOnlineFriends: [],
   allSuggestedFriends: [],
   allPostComments: []
@@ -33,7 +33,10 @@ const UiSlice = createSlice({
       const targetUser = action.payload
       state.targetUser = targetUser
       if(targetUser[0] && state.loginUser[0].id == targetUser[0].id) {
-        state.isMyProfile = true
+        state.isMyProfile = 'targetUser'
+      }
+      if(targetUser[0] && state.loginUser[0].id !== targetUser[0].id) {
+        state.isMyProfile = state.loginUser[0].id
       }
     },
     setAllLoginUser(state, action) {
@@ -81,7 +84,11 @@ const UiSlice = createSlice({
     },
     setAllTargetUserPost(state, action) {
       const allTargetUserPosts = action.payload
-      state.alltargetUserPosts = allTargetUserPosts
+      allTargetUserPosts[0] ? state.alltargetUserPosts = allTargetUserPosts
+      : state.alltargetUserPosts = ['no post']
+    },
+    deleteTargetUserPost(state, action) {
+      state.alltargetUserPosts = ['']
     },
     setOneTargetUserPost(state, action) {
       const oneTargetUserPost = action.payload
@@ -105,6 +112,6 @@ const UiSlice = createSlice({
   }
 })
 
-export const { setToken, setTargetUser, setAllLoginUser, setAllOnlineFriends, setAllSuggestedFriends,  handleSelfChat, setAllMessage, setSelfMessage, setAllPost, setAllUserAddedPost, setAllTargetUserPost, setOneTargetUserPost, DeletePost, handleLikeCount, setAllLike, setSelfLike, setAllComment, setSelfComment } = UiSlice.actions;
+export const { setToken, setTargetUser, setAllLoginUser, setAllOnlineFriends, setAllSuggestedFriends,  handleSelfChat, setAllMessage, setSelfMessage, setAllPost, setAllUserAddedPost, setAllTargetUserPost, deleteTargetUserPost, setOneTargetUserPost, DeletePost, handleLikeCount, setAllLike, setSelfLike, setAllComment, setSelfComment } = UiSlice.actions;
 
 export default UiSlice

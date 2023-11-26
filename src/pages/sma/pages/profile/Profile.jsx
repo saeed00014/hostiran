@@ -4,7 +4,7 @@ import Header from './header/Header'
 import Body from './body/Body'
 import { useDispatch } from 'react-redux'
 import { getTargetUser } from '../../services/user'
-import { setAllTargetUserPost, setTargetUser } from '../../store/UiSlice'
+import { deleteTargetUserPost, setAllTargetUserPost, setTargetUser } from '../../store/UiSlice'
 import { getAllTargetUserPost } from '../../services/post'
 import Loading from '../../components/loading'
 
@@ -27,6 +27,7 @@ const ProfilePage = () => {
   }, [id])
   
   useEffect(() => {
+    dispatch(deleteTargetUserPost())
     async function getAllTargetUserPostFunc() {
       if(targetUser[0]) {
         const allTargetUserPosts = await getAllTargetUserPost(`https://saeedwebdev.ir/api/posts/${targetUser[0].id}`)
