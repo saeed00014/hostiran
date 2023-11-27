@@ -38,8 +38,7 @@ const Header = () => {
     async function handleLogoutFunc() {
       const result = email && await logout(url)
       if(result) {
-        console.log(result)
-        //location.reload('/')
+        location.reload('/')
       }
     }
     handleLogoutFunc()
