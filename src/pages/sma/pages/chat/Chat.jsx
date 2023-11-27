@@ -6,6 +6,7 @@ import { getOneMessage } from '../../services/message'
 import { getTargetUser } from '../../services/user'
 import { useDispatch, useSelector } from 'react-redux'
 import { setAllMessage, setTargetUser } from '../../store/UiSlice'
+import Loadingb from '../../components/loadingb'
 
 const ChatPage = () => {  
   const dispatch = useDispatch()
@@ -30,7 +31,7 @@ const ChatPage = () => {
   
   useEffect(() => {
     async function getAllMessagesFunc() {
-      const allMessages = (targetUserSt[0] && loginUser[0]) && await getOneMessage(`https://saeedwebdev.ir/api/messages/${loginUser[0].id}=${targetUserSt[0].id}`)
+      const allMessages = (targetUserSt && loginUser[0]) && await getOneMessage(`https://saeedwebdev.ir/api/messages/${loginUser[0].id}=${targetUserSt[0].id}`)
       if(allMessages) {
           dispatch(setAllMessage(allMessages))
         }
@@ -40,11 +41,14 @@ const ChatPage = () => {
 
   return (
     <section className='flex w-full max-h-screen min-h-screen overflow-hidden'>
-      {targetUserSt && loginUser && 
+      {(targetUserSt && loginUser) ? 
         <>
           <Suggested />
           <Current targetUser={targetUserSt} loginUser={loginUser}/>
-        </>
+        </> :
+        <div className='flex items-center justify-center w-full h-full'>
+          <Loadingb color='black' />
+        </div>
       }
     </section>
   )

@@ -12,7 +12,9 @@ const Scroller = () => {
     <div className='overflow-y-scroll'>
       {allLoginUsersMinosMy.map((user) => {
         return (
-          <Suggestion user={user} />
+          <span key={user.id}>
+            <Suggestion user={user} />
+          </span>
         )
       })}
     </div>

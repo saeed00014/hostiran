@@ -11,7 +11,7 @@ const SearchBar = () => {
     setSValue(e.target.value)
   }
   return (
-    <div className='flex flex-col items-center justify-center gap-5 z-50'>
+    <div className='flex flex-col items-center justify-center gap-3 z-50'>
       <div className='relative flex flex-col items-center justify-center '>
         <input onSelect={() => setSelect(true)}  onChange={(e) => handleChange(e)} id='input' type="text" placeholder='جستجو' className='flex items-center md:w-[257px] w-full h-[42px] pr-12 pb-1 rounded-full bg-bg-theme-darker z-50'/>
         <label htmlFor='input' className='absolute right-4 z-50'>

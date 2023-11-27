@@ -21,7 +21,8 @@ export default {
       keyframes: {
         smaLoading: {
           '0%': {transform: 'translateY(0rem)'},
-          '100%': {transform: 'translateY(-8rem)'}
+          '50%': {transform: 'translateY(-8rem)'},
+          '100%': {transform: 'translateY(0rem)'}
         },
       },
       animation: {

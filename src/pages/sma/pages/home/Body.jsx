@@ -4,6 +4,7 @@ import PostCard from '../../components/post/PostCard'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllTargetUserPost } from '../../services/post'
 import { setAllUserAddedPost } from '../../store/UiSlice'
+import NoPost from '../../components/NoPost'
 
 const Body = () => {
   const dispatch = useDispatch()
@@ -22,8 +23,9 @@ const Body = () => {
   const allUserAddedPost = ui.allUserAddedPost
   
   return (
-    <div className='flex flex-col h-screen w-full md:p-4 p-2 gap-6 overflow-y-scroll md:pb-20 pb-44'>
-      <div className='h-[156px]'>
+    <div className='flex flex-col h-screen w-full md:p-4 p-2 md:gap-6 gap-4
+     overflow-y-scroll md:pb-20 pb-44'>
+      <div className='md:h-[156px] h-[124px]'>
         <PostMaker /> 
       </div>
       <div className='flex flex-col-reverse gap-6 '>
@@ -35,7 +37,7 @@ const Body = () => {
               targetUser && <PostCard post={post} targetUser={targetUser} />
             )
           }) : <div className='flex justify-center w-full'>
-            <div className='flex justify-center py-2 pb-4 px-3 w-full shadow-3xl rounded-[.6rem] max-w-[800px] bg-white'>هیچ پستی وجود ندارد</div>
+            <NoPost />
           </div>
         }
       </div>     

@@ -1,11 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import PostCard from '../../../../components/post/PostCard'
+import NoPost from '../../../../components/NoPost'
 
 const AllPosts = ({targetUser}) => {
   const ui = useSelector((state) => state.ui)
   const allTargetUserPosts = ui.alltargetUserPosts
-  console.log(allTargetUserPosts[0])
   return (
     <div className='flex flex-col w-full md:gap-6 gap-4'>
       {allTargetUserPosts[0] == '' ? '' : 
@@ -15,7 +15,7 @@ const AllPosts = ({targetUser}) => {
       )
       }) : 
       <div className='flex justify-center w-full'>
-        <div className='flex justify-center py-2 pb-4 px-3 w-full shadow-3xl rounded-[.6rem] max-w-[800px] bg-white'>هیچ پستی وجود ندارد</div>
+        <NoPost />
       </div>
       }
     </div>

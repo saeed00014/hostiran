@@ -109,7 +109,7 @@ const Header = () => {
       {isMyProfile == '' ? '' 
         : isMyProfile !== loginUser[0].id ? 
         <>
-          <label htmlFor='image' className='absolute xl:right-20 lg:right-8 md:right-4 right-2 md:bottom-10 bottom-14 w-32 h-32 border-4 border-white rounded-full cursor-pointer z-40'>
+          <label htmlFor='image' className='absolute xl:right-20 lg:right-8 md:right-4 right-2 md:bottom-10 bottom-14 w-32 h-32 border-4 border-white rounded-full cursor-pointer z-30'>
             <img src={avatar ? avatar : defaultAvatar} alt="" className='object-cover bg-white  h-full w-full rounded-full'/>
             <span className='absolute right-0 bottom-0 text-2xl'><BiSolidEdit /></span>
           </label>
