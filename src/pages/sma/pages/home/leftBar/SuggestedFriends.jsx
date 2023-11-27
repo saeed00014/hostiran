@@ -15,7 +15,9 @@ const SuggestedFriends = () => {
       <div className='flex flex-col '>
         {allLoginUsersMinosMy && allLoginUsersMinosMy.map((targetUser) => {
           return (
-            <Suggestion targetUser={targetUser} loginUser={loginUser} />
+            <span key={targetUser.id}>
+              <Suggestion targetUser={targetUser} loginUser={loginUser} />
+            </span>
           )
         })}
       </div>

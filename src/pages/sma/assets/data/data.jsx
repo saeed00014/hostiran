@@ -19,7 +19,7 @@ export const mainHeaderLinks = [
   },
   {
     name: 'هشدار ها',
-    path: '/sma/explore',
+    path: '/sma/amlarm',
     icon: <MdOutlineNotificationsNone />
   },
   {
@@ -34,7 +34,7 @@ export const mainHeaderLinks = [
   },
   {
     name: 'بیشتر',
-    path: '#',
+    path: '/#',
     icon: <CgMoreO />
   }
 ]

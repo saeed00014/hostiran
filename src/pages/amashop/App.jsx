@@ -24,7 +24,7 @@ const Product = lazy(() => {
 })
 
 import axios from 'axios'
-import LoadingPage from "../../components/loadingPage"
+import Loading from "./components/loading"
 
 function AppS() {
   const dispatch = useDispatch()
@@ -51,7 +51,7 @@ function AppS() {
     <BrowserRouter>
     <div style={{direction: 'rtl'}} className="[&>*]:bg-g_Background_White_Shop [&>*]:text-black [&>*]:font-sans [&>*]:font-[500]">
       <Header />
-      <Suspense fallback={<LoadingPage />}>
+      <Suspense fallback={<Loading />}>
       <Routes>
         <Route path="/shop" element={<HomePage />} />
         <Route path="/shop/card" element={<CardPage />} />

@@ -18,6 +18,19 @@ export default {
   
         '2xl': '1728px',
       },
+      keyframes: {
+        smaLoading: {
+          '0%': {transform: 'translateY(0rem)'},
+          '100%': {transform: 'translateY(-8rem)'}
+        },
+      },
+      animation: {
+        'smaLoad1': 'smaLoading 1.6s linear infinite',
+        'smaLoad2': 'smaLoading 1.6s linear infinite .1s',
+        'smaLoad3': 'smaLoading 1.6s linear infinite .2s',
+        'smaLoad4': 'smaLoading 1.6s linear infinite .3s',
+        'smaLoad5': 'smaLoading 1.6s linear infinite .4s',
+      },
       colors: {
         g_Text_White: '#FFF',
         g_Text_Black: '#000',

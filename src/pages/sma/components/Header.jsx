@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useMemo } from 'react';
 
 import { bottomHeaderLinks, mainHeaderLinks } from '../assets/data/data'
 import AcountInfo from './AcountInfo'
@@ -18,7 +17,7 @@ const Header = () => {
         <ul className='flex w-full flex-col xl:gap-0 gap-2 '>
           {mainHeaderLinks.map((link) => {
             return (
-              <li className='group w-full xl:py-1'>
+              <li key={link.name} className='group w-full xl:py-1'>
                 <Link to='/sma' className='flex items-center xl:justify-start justify-center w-full'>
                   <div className='group flex items-center w-fit xl:py-3 xl:pr-3 xl:pl-6 pr-3 pl-3 py-3 rounded-full gap-3 group-hover:bg-bg-hover'>
                     <span className='text-3xl'>{link.icon}</span>
@@ -48,7 +47,7 @@ const Header = () => {
             </Link>}
           {bottomHeaderLinks.map((link) => {
             return (
-              <li className='flex items-center w-full'>
+              <li key={link.name} className='flex items-center w-full'>
                 <Link to={link.path} className='flex items-center justify-center w-full'>
                   <div className='flex items-center'>
                     <span className='md:text-3xl text-2xl'>{link.icon}</span>

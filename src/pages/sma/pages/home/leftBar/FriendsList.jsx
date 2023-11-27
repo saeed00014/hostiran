@@ -7,7 +7,6 @@ const OnlineFriends = () => {
   const myOnlineFriends = ui.myOnlineFriends
   const targetUser = ui.targetUser
 
-  
   return (
     <div className='flex flex-col bg-bg-theme-darker rounded-[1rem]'>
       <h2 className='font-bold md:text-[1.2rem] text-[1rem] p-2'>
@@ -16,7 +15,9 @@ const OnlineFriends = () => {
       <div className='flex flex-col w-full'>
         {myOnlineFriends && myOnlineFriends.map((friend) => {
           return (
-            <OnlineFriend friend={friend} />
+            friend && <span key={friend.id}>
+              <OnlineFriend friend={friend} />
+            </span>
           )
         })}
       </div>

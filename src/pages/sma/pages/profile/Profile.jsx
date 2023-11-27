@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 import { getTargetUser } from '../../services/user'
 import { deleteTargetUserPost, setAllTargetUserPost, setTargetUser } from '../../store/UiSlice'
 import { getAllTargetUserPost } from '../../services/post'
-import Loading from '../../components/loading'
+import Loadingb from '../../components/loadingb'
 
 const ProfilePage = () => {
   const [targetUser, setTargetUserST] = useState('')
@@ -46,7 +46,9 @@ const ProfilePage = () => {
         <Header targetUser={targetUser} />
         <Body targetUser={targetUser} />
       </> : 
-      <Loading />
+      <div className='h-screen flex items-center'>
+        <Loadingb color='black' />
+      </div>
       }
     </section>
   )

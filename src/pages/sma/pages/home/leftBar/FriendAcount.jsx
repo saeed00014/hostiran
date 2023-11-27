@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import defaultAvatar from '../../../assets/images/testImg.png'
+import { Link } from 'react-router-dom'
 
 const OnlineFriend = ({friend}) => {
   const [avatar, setAvatar] = useState(null)
