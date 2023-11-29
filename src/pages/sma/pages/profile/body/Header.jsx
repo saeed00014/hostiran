@@ -11,7 +11,6 @@ import { createPostMedia } from '../../../services/post'
 import { Link } from 'react-router-dom'
 
 const Header = () => {
-  const [avatar, setAvatar] = useState(null)
   const [followers, setFollowers] = useState('')
   const [followings, setFollowings] = useState('')
   const ui = useSelector((state) => state.ui)
@@ -37,6 +36,8 @@ const Header = () => {
     async function handleLogoutFunc() {
       const result = email && await logout(url)
       if(result) {
+        localStorage.setItem('token', '')
+        localStorage.setItem('user', '')
         location.reload('/')
       }
     }
@@ -54,7 +55,7 @@ const Header = () => {
       if(result) {
         const result2 = await avatarUser(url2, result)
         if(result2 == 'avatar added') {
-          location.reload()
+
         }
       }
     }
@@ -64,7 +65,7 @@ const Header = () => {
   return (
     <header className='relative flex flex-col w-full'>
       <div className='flex w-full max-w-none h-72'>
-        <img src={targetUser[0].avatar ? `https://saeedwebdev.ir/avatar/${loginUser[0].avatar}` : defaultAvatar} alt="" className='object-cover h-full w-full'/>
+        <img src={targetUser[0].avatar ? `https://saeedwebdev.ir/avatar/${targetUser[0].avatar}` : defaultAvatar} alt="" className='object-cover h-full w-full'/>
       </div>
       <div className='flex items-center justify-end w-full lg:gap-5 gap-2 py-5 lg:px-8 md:px-4 px-2'>
         {isMyProfile == '' ? '' 
@@ -91,13 +92,13 @@ const Header = () => {
       {isMyProfile == '' ? '' 
         : isMyProfile !== loginUser[0].id ? 
         <>
-          <label htmlFor='image' className='absolute xl:right-20 lg:right-8 md:right-4 right-2 md:bottom-10 bottom-14 w-32 h-32 border-4 border-white rounded-full cursor-pointer z-30'>
+          <label htmlFor='image' className='absolute xl:right-20 lg:right-8 md:right-4 right-2 md:bottom-10 bottom-14 w-32 h-32 border-2 border-white rounded-full cursor-pointer z-30'>
             <img src={targetUser[0].avatar ? `https://saeedwebdev.ir/avatar/${targetUser[0].avatar}` : defaultAvatar} alt="" className='object-cover bg-white  h-full w-full rounded-full'/>
             <span className='absolute right-0 bottom-0 text-2xl'><BiSolidEdit /></span>
           </label>
           <input onChange={(e) => handleSetAvatar(e)} className='hidden' type="file" name='image' id='image' accept=".jpg, .jpeg, .png"  />
         </> :
-        <div className='absolute xl:right-20 lg:right-8 md:right-4 right-2 md:bottom-10 bottom-14 w-32 h-32 border-4 border-white bg-white rounded-full z-50'>
+        <div className='absolute xl:right-20 lg:right-8 md:right-4 right-2 md:bottom-10 bottom-14 w-32 h-32 border-2 border-white bg-white rounded-full z-50'>
           <img src={targetUser[0].avatar ? `https://saeedwebdev.ir/avatar/${targetUser[0].avatar}` : defaultAvatar} alt="" className='object-cover h-full w-full rounded-full'/>
         </div>
         }
