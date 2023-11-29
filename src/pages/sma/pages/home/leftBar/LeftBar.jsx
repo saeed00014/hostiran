@@ -9,7 +9,7 @@ const LeftBar = () => {
   const [leftBar, setLeftBar] = useState(false)
 
   return (
-    <div className={`fixed ${leftBar ? 'left-0' : 'lg:left-0 lg:max-h-screen max-h-[63px] md:-left-[290px] -left-[250px]'} transition-all duration-200 top-0 flex items-start min-w-[290px] md:pb-0 pb-14 h-screen z-40`}>
+    <div className={`fixed ${leftBar ? 'left-0' : 'lg:left-0 lg:max-h-screen max-h-[63px] md:-left-[290px] -left-[250px]'} transition-all duration-200 top-0 flex items-start min-w-[290px] md:pb-0 pb-14 h-screen z-30`}>
       <div className='lg:hidden flex items-center h-[63px] text-white md:ml-4 ml-2'>
         <button  onClick={() => setLeftBar(!leftBar)}className='flex items-center md:gap-3 gap-2 bg-green-500 hover:bg-green-600 rounded-full md:px-3 px-2 md:py-2 py-[.4rem]'>
           <span className='relative flex items-center justify-center font-normal w-3 h-full [&>i]:bg-white'>

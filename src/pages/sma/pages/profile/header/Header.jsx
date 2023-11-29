@@ -9,7 +9,7 @@ const Header = ({targetUser}) => {
   const navigate = useNavigate();
 
   return (
-    <div className='sticky top-0 flex items-center gap-3 py-2 px-3 w-full border-b-[2px] bg-white z-40'>
+    <div className='sticky top-0 flex items-center gap-3 py-2 px-3 w-full border-b-[2px] bg-white z-20'>
       <button onClick={() => navigate(-1)} className='flex border-[2px] rounded-full p-3 text-2xl hover:bg-bg-hover'>
         <IoMdArrowForward />
       </button>

@@ -36,7 +36,6 @@ const Header = () => {
           <span className='xl:flex hidden'>ورود/تبت نام</span>
          </Link>}
       </nav>
-
       <nav className='fixed bottom-0 md:hidden flex items-center justify-center flex-col w-full h-[60px] border-t-[1px] bg-white z-50'>
         <ul className='flex items-center w-full'>
             {ui.token ? <div className='flex justify-center items-center w-full'>
