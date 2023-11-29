@@ -64,7 +64,7 @@ const Header = () => {
   return (
     <header className='relative flex flex-col w-full'>
       <div className='flex w-full max-w-none h-72'>
-        <img src={defaultAvatar} alt="" className='object-cover h-full w-full'/>
+        <img src={targetUser[0].avatar ? `https://saeedwebdev.ir/avatar/${loginUser[0].avatar}` : defaultAvatar} alt="" className='object-cover h-full w-full'/>
       </div>
       <div className='flex items-center justify-end w-full lg:gap-5 gap-2 py-5 lg:px-8 md:px-4 px-2'>
         {isMyProfile == '' ? '' 
