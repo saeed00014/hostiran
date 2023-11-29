@@ -112,7 +112,7 @@ const PostCard = ({post, edition, handleSetCommentCall, targetUser}) => {
           <header className='flex justify-between md:pt-3 pt-2 md:px-4 px-2 h-[48px] md:mb-3 mb-1 gap-3'>
             <Link to={`/sma/profile/${targetUser && targetUser.id}`} className='flex w-full md:gap-3 gap-2 cursor-pointer'>
               <div className='w-10 h-10 min-w-[40px]'>
-                <img src={targetUser.avatar ? `https://saeedwebdev.ir/avatar/${targetUser.avatar}` : defaultAvatar} alt="profile picture" className='object-cover h-full w-full rounded-full' />
+                <img src={targetUser.avatar ? `https://saeedwebdev.ir/avatar/${targetUser.avatar}` : defaultAvatar} alt="profile picture" className='object-cover h-full w-full rounded-full ' />
               </div>
               <div className='relative h-9 w-full md:mt-0 mt-1 md:text-[1rem] text-[.9rem]'>
                 <span className='absolute flex h-4 -top-1'>{targetUser && (targetUser.firstName + ' ' + targetUser.lastName)}</span>

@@ -34,8 +34,30 @@ export const h1 = {
 import AjorPlus from '../assets/images/Ajorplushdash.png'
 import amashop from '../assets/images/amashop.jpg'
 import amashopblur from '../assets/images/amashopblur.jpg'
+import Ajorplushdashblur from '../assets/images/Ajorplushdashblur.png'
 
 export const projects = [
+  {
+    id: 2,
+    img: AjorPlus,
+    bgImg: Ajorplushdashblur,
+    name: 'اپلیکیشن شبکه اجتماعی',
+    nameE: '(SMA)',
+    dis: 'اپلیکیشن SMA یک شبکه اجتماعی fullstack است بخش فرانت دارای ui کاملا ریسپانسیو برای همه سایزها به وسیله Tailwind css است و همچنین دارای state management system redux و تغیرات لحظه ای در ui است و از rest-api جهت ارتباط با بک اند استفاده میکند بک اند با ساخته شده و Node JS و Express Js و mysql database دارای امکان signup و login و logout ساخت پست لایک کردن و اضافه کردن کامنت برای پست ها توسط همه کاربران به صورت کاملا جداگانه امکان ارسال پیام و follow و unfollow کردن و مشاهده پروفایل همه کاربران',
+    Link : [
+      {
+        name: 'Github',
+        path: ''
+      },
+      {
+        name: 'view Demo',
+        path: '/sma'
+      }
+    ],
+    skill : [
+      'Reactjs', 'Redux', 'Mysql', 'Tailwind' 
+    ]
+  },
   {
     id: 1,
     img: amashop,
@@ -55,27 +77,6 @@ export const projects = [
     ],
     skill : [
       'Reactjs', 'Redux', 'Restapi', 'Express', 'Tailwind'
-    ]
-  },
-  {
-    id: 2,
-    img: AjorPlus,
-    bgImg: amashopblur,
-    name: 'اپلیکیشن شبکه اجتماعی',
-    nameE: '(SMA)',
-    dis: 'اپلیکیشن SMA یک شبکه اجتماعی fullstack است بخش فرانت دارای ui کاملا ریسپانسیو برای همه سایزها به وسیله Tailwind css است و همچنین دارای state management system redux و تغیرات لحظه ای در ui است و از rest-api جهت ارتباط با بک اند استفاده میکند بک اند با ساخته شده و Node JS و Express Js و mysql database دارای امکان signup و login و logout ساخت پست لایک کردن و اضافه کردن کامنت برای پست ها توسط همه کاربران به صورت کاملا جداگانه امکان ارسال پیام و follow و unfollow کردن و مشاهده پروفایل همه کاربران',
-    Link : [
-      {
-        name: 'Github',
-        path: ''
-      },
-      {
-        name: 'view Demo',
-        path: '/sma'
-      }
-    ],
-    skill : [
-      'Reactjs', 'Redux', 'Mysql', 'Tailwind' 
     ]
   }
 ]
