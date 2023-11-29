@@ -92,13 +92,13 @@ const Header = () => {
         : isMyProfile !== loginUser[0].id ? 
         <>
           <label htmlFor='image' className='absolute xl:right-20 lg:right-8 md:right-4 right-2 md:bottom-10 bottom-14 w-32 h-32 border-4 border-white rounded-full cursor-pointer z-30'>
-            <img src={targetUser[0] ? `https://saeedwebdev.ir/avatar/${targetUser[0].avatar}` : defaultAvatar} alt="" className='object-cover bg-white  h-full w-full rounded-full'/>
+            <img src={loginUser[0].avatar ? `https://saeedwebdev.ir/avatar/${loginUser[0].avatar}` : defaultAvatar} alt="" className='object-cover bg-white  h-full w-full rounded-full'/>
             <span className='absolute right-0 bottom-0 text-2xl'><BiSolidEdit /></span>
           </label>
           <input onChange={(e) => handleSetAvatar(e)} className='hidden' type="file" name='image' id='image' accept=".jpg, .jpeg, .png"  />
         </> :
         <div className='absolute xl:right-20 lg:right-8 md:right-4 right-2 md:bottom-10 bottom-14 w-32 h-32 border-4 border-white bg-white rounded-full z-50'>
-          <img src={targetUser[0] ? `https://saeedwebdev.ir/avatar/${targetUser[0].avatar}` : defaultAvatar} alt="" className='object-cover h-full w-full rounded-full'/>
+          <img src={targetUser[0].avatar ? `https://saeedwebdev.ir/avatar/${targetUser[0].avatar}` : defaultAvatar} alt="" className='object-cover h-full w-full rounded-full'/>
         </div>
         }
         <div className='relative flex flex-col w-full min-w-max px-3'>
