@@ -10,14 +10,14 @@ const ImgSlider = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const aaa = (
+      const activeState = (
         (active <= 1
           ? 6
           : active - 1 
-        ) + 'ff'
+        ) + 'id' //make id deferent than img id
       ).toString() 
 
-      document.getElementById(aaa).click()
+      document.getElementById(activeState).click()
     }, 5000)
     return () => clearInterval(interval)
   }, [active])
@@ -47,15 +47,15 @@ const ImgSlider = () => {
       <div className='relative flex w-screen xl:h-[25rem] lg:h-[24rem] md:h-[20rem] h-[18rem] border-b-[2px] overflow-visible'>
         {headerImg.map((img) => {
           return (
-            <img src={img.img} alt='' key={img.index} id={img.index} className= {`absolute ${active == img.index ? 'z-20' : 'z-10' } transition-all duration-100 object-cover w-full h-full`} />
-            )
+            <img src={img.img} alt='' key={img.index} id={img.index} className= {`absolute ${active == img.index ? 'z-20' : 'z-10'} transition-all duration-100 object-cover w-full h-full`} />
+          )
           })}
       </div>
       <div className='absolute bottom-[10%] flex justify-center w-full'>
         <div className='flex items-center justify-center w-32 h-3 px-1 bg-g_Border_Shaded_Shop rounded-full z-30'>
           {headerImg.map((img) => {
             return (
-              <button key={img.index} id={`${img.index}ff`} onClick={() => imgNavigator(img.index)} className='flex items-center justify-center w-full h-full'>
+              <button key={img.index} id={`${img.index}id`} onClick={() => imgNavigator(img.index)} className='flex items-center justify-center w-full h-full'>
                 <span className={`flex h-1 ${active == img.index ? 'w-3' : 'w-1'} bg-g_Background_Shaded_Shop rounded-full transition-all duration-300`}>
                 </span>
               </button>

@@ -10,7 +10,7 @@ import { productInfo } from '../../data/data'
 const HomeDiscount = () => {
   const PrecentMaker = () => {
     return (
-      <span className='md:text-4xl text-3xl  font-[500] text-white'>
+      <span className='md:text-4xl text-3xl font-[500] text-white'>
         %
       </span>
     )
