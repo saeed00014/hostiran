@@ -7,6 +7,7 @@ const SuggestedFriends = () => {
   const loginUser = ui.loginUser
   const allSuggestedFriends = ui.allSuggestedFriends
   const allLoginUsersMinosMy = allSuggestedFriends && loginUser[0] && allSuggestedFriends.filter((user) => user.id !== loginUser[0].id )
+  
   return (
     <div className='flex flex-col w-full bg-bg-theme-darker rounded-[1rem] z-40'>
       <h3 className='font-bold md:text-[1.2rem] text-[1rem] p-2 '>

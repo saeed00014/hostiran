@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux'
 const OnlineFriends = () => {
   const ui = useSelector((state) => state.ui)
   const myOnlineFriends = ui.myOnlineFriends
-  const targetUser = ui.targetUser
 
   return (
     <div className='flex flex-col bg-bg-theme-darker rounded-[1rem]'>

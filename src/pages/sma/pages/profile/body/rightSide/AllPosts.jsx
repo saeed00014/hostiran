@@ -6,6 +6,7 @@ import NoPost from '../../../../components/NoPost'
 const AllPosts = ({targetUser}) => {
   const ui = useSelector((state) => state.ui)
   const allTargetUserPosts = ui.alltargetUserPosts
+  
   return (
     <div className='flex flex-col w-full md:gap-6 gap-4'>
       {allTargetUserPosts[0] == '' ? '' : 

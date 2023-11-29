@@ -28,7 +28,7 @@ const Header = ({targetUser}) => {
     <div className='sticky top-0 flex items-center justify-between w-full min-h-[75px] xl:px-8 md:px-4 px-2 bg-white'>
       <div className='flex items-center w-full gap-3'>
         <div className='w-[50px] h-[50px]'>
-          <img src={avatar ? avatar : defaultAvatar} alt="" className='w-full h-full rounded-full'/>
+          <img src={targetUser[0].avatar ? `https://saeedwebdev.ir/avatar/${targetUser[0].avatar}` : defaultAvatar} alt="" className='w-full h-full rounded-full'/>
         </div>
         <span className='-mt-1'>
         {targetUser && (targetUser[0].firstName + ' ' + targetUser[0].lastName)}

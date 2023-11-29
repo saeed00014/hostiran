@@ -11,28 +11,12 @@ import defaultAvatar from '../../assets/images/testImg.png'
 import Loadingb from '../loadingb'
 
 const PostMaker = () => {
-  const [avatar, setAvatar] = useState('')
   const [media, setMedia] = useState('')
   const [loadingSend, setLoadingSend] = useState(false)
   const dispatch = useDispatch()
   const ref = useRef()
   const ui = useSelector((state) => state.ui)
   const loginUser = ui.loginUser
-
-  useEffect(() => {
-    function getImgUrl(){
-      const res = new URL(`../../assets/avatar/${loginUser && loginUser[0].avatar}`, import.meta.url).href
-      const urlLength = res.split('/').length
-      const url = res.split('/')[urlLength - 1]
-      if(url !== 'undefined') {
-        setAvatar(res)
-      }
-      if(url == 'undefined') {
-        setAvatar(null)
-      }
-    }
-    getImgUrl()
-  }, [loginUser])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -77,7 +61,7 @@ const PostMaker = () => {
       <div className='flex flex-col items-center justify-center w-full shadow-3xl rounded-[.6rem] max-w-[800px] bg-white'>
         <div className='flex w-full md:p-4 px-[5%] py-2 md:gap-2 gap-1'>
           <label htmlFor='text' className='md:max-w-[50px] max-w-[40px] md:h-[50px] h-[40px] bg-white rounded-full'>
-            <img  src={avatar ? avatar : defaultAvatar} className='md:max-w-[50px] max-w-[40px] md:h-[50px] h-[40px] object-cover rounded-full'/>
+            <img  src={loginUser.avatar ? `https://saeedwebdev.ir/avatar/${loginUser[0].avatar}` : defaultAvatar} className='md:max-w-[50px] max-w-[40px] md:h-[50px] h-[40px] object-cover rounded-full'/>
           </label>
           <input type="text" name='text' id='text' placeholder='به چه چیری فکر میکنید ؟' className='w-full pr-2 md:text-[1rem] text-[.9rem]'/>
         </div>

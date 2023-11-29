@@ -7,7 +7,6 @@ import { getTargetUser } from '../../services/user'
 import { deleteTargetUserPost, setAllTargetUserPost, setTargetUser } from '../../store/UiSlice'
 import { getAllTargetUserPost } from '../../services/post'
 import Loadingb from '../../components/loadingb'
-import Loading from '../../components/loading'
 
 const ProfilePage = () => {
   const [targetUser, setTargetUserST] = useState('')

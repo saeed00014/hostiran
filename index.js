@@ -30,7 +30,7 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(cookieParser());
 
-app.use(express.static(path.join(__dirname, "./src/pages/sma/assets/avatar")))
+app.use(express.static(path.join(__dirname, "./src/pages/sma/assets")))
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, './src/pages/sma/assets/avatar')

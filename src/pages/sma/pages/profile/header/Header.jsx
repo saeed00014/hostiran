@@ -7,9 +7,6 @@ import {IoMdArrowForward} from 'react-icons/io'
 
 const Header = ({targetUser}) => {
   const navigate = useNavigate();
-  const handleNavBack = () => {
-    
-  }
 
   return (
     <div className='sticky top-0 flex items-center gap-3 py-2 px-3 w-full border-b-[2px] bg-white z-40'>

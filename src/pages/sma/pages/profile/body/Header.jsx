@@ -11,7 +11,6 @@ import { createPostMedia } from '../../../services/post'
 import { Link } from 'react-router-dom'
 
 const Header = () => {
-  const [imageAddress, setImageAddress] = useState(null)
   const [avatar, setAvatar] = useState(null)
   const [followers, setFollowers] = useState('')
   const [followings, setFollowings] = useState('')
@@ -55,28 +54,12 @@ const Header = () => {
       if(result) {
         const result2 = await avatarUser(url2, result)
         if(result2 == 'avatar added') {
-          setImageAddress(result)
           location.reload()
         }
       }
     }
     setAvatarFunc()
   }
-
-  useEffect(() => {
-    function getImgUrl(){
-      const res = new URL(`../../../assets/avatar/${targetUser && targetUser[0].avatar}`, import.meta.url).href
-      const urlLength = res.split('/').length
-      const url = res.split('/')[urlLength - 1]
-      if(url !== 'undefined') {
-        setAvatar(res)
-      }
-      if(url == 'undefined') {
-        setAvatar(null)
-      }
-    }
-    getImgUrl()
-  }, [targetUser])
 
   return (
     <header className='relative flex flex-col w-full'>
@@ -109,13 +92,13 @@ const Header = () => {
         : isMyProfile !== loginUser[0].id ? 
         <>
           <label htmlFor='image' className='absolute xl:right-20 lg:right-8 md:right-4 right-2 md:bottom-10 bottom-14 w-32 h-32 border-4 border-white rounded-full cursor-pointer z-30'>
-            <img src={avatar ? avatar : defaultAvatar} alt="" className='object-cover bg-white  h-full w-full rounded-full'/>
+            <img src={targetUser[0] ? `https://saeedwebdev.ir/avatar/${targetUser[0].avatar}` : defaultAvatar} alt="" className='object-cover bg-white  h-full w-full rounded-full'/>
             <span className='absolute right-0 bottom-0 text-2xl'><BiSolidEdit /></span>
           </label>
           <input onChange={(e) => handleSetAvatar(e)} className='hidden' type="file" name='image' id='image' accept=".jpg, .jpeg, .png"  />
         </> :
         <div className='absolute xl:right-20 lg:right-8 md:right-4 right-2 md:bottom-10 bottom-14 w-32 h-32 border-4 border-white bg-white rounded-full z-50'>
-          <img src={avatar ? avatar : defaultAvatar} alt="" className='object-cover h-full w-full rounded-full'/>
+          <img src={targetUser[0] ? `https://saeedwebdev.ir/avatar/${targetUser[0].avatar}` : defaultAvatar} alt="" className='object-cover h-full w-full rounded-full'/>
         </div>
         }
         <div className='relative flex flex-col w-full min-w-max px-3'>

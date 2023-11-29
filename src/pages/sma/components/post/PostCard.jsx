@@ -19,8 +19,6 @@ import NotIntrest from './NotIntrest'
 import { Link } from 'react-router-dom'
 
 const PostCard = ({post, edition, handleSetCommentCall, targetUser}) => {
-  const [image, setImage] = useState(null)
-  const [avatar, setAvatar] = useState(null)
   const [notIntrest, setNotIntrest] = useState(false)
   const [sharePost, setSharePost] = useState(false)
   const [comment, setComment] = useState(false)
@@ -30,30 +28,6 @@ const PostCard = ({post, edition, handleSetCommentCall, targetUser}) => {
   const dispatch = useDispatch()
   const ui = useSelector((state) => state.ui)
   const loginUser = ui.loginUser
-  
-  useEffect(() => {
-    function getImgUrl(){
-      const resAvatar = new URL(`../../assets/avatar/${targetUser && targetUser.avatar}`, import.meta.url).href
-      const avatarUrlLength = resAvatar.split('/').length
-      const Avatarurl = resAvatar.split('/')[avatarUrlLength - 1]
-      if(Avatarurl !== 'undefined') {
-        setAvatar(resAvatar)
-      }
-      if(Avatarurl == 'undefined') {
-        setAvatar(null)
-      }
-      const resImage = new URL(`../../assets/avatar/${post && post.media}`, import.meta.url).href
-      const imageUrlLength = resImage.split('/').length
-      const imageUrl = resImage.split('/')[imageUrlLength - 1]
-      if(imageUrl !== 'undefined') {
-        setImage(resImage)
-      }
-      if(imageUrl == 'undefined') {
-        setImage(null)
-      }
-    }
-    getImgUrl()
-  }, [targetUser, post])
 
   useEffect(() => {
     async function getAllPostLikes() {
@@ -138,7 +112,7 @@ const PostCard = ({post, edition, handleSetCommentCall, targetUser}) => {
           <header className='flex justify-between md:pt-3 pt-2 md:px-4 px-2 h-[48px] md:mb-3 mb-1 gap-3'>
             <Link to={`/sma/profile/${targetUser && targetUser.id}`} className='flex w-full md:gap-3 gap-2 cursor-pointer'>
               <div className='w-10 h-10 min-w-[40px]'>
-                <img src={avatar ? avatar : defaultAvatar} alt="profile picture" className='object-cover h-full w-full rounded-full' />
+                <img src={targetUser.avatar ? `https://saeedwebdev.ir/avatar/${targetUser.avatar}` : defaultAvatar} alt="profile picture" className='object-cover h-full w-full rounded-full' />
               </div>
               <div className='relative h-9 w-full md:mt-0 mt-1 md:text-[1rem] text-[.9rem]'>
                 <span className='absolute flex h-4 -top-1'>{targetUser && (targetUser.firstName + ' ' + targetUser.lastName)}</span>
@@ -164,7 +138,7 @@ const PostCard = ({post, edition, handleSetCommentCall, targetUser}) => {
             <p>{post.text}</p>
           </div>
           <div className='flex justify-center w-full'>
-            <img src={image} alt="" />
+            <img src={`https://saeedwebdev.ir/avatar/${post.media}`} alt="" />
           </div>
         </div>
         <footer className='flex flex-col md:px-4 px-2'>

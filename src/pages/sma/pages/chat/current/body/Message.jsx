@@ -2,12 +2,12 @@ import React from 'react'
 
 import defaultAvatar from '../../../../assets/images/testImg.png'
 
-const message = ({message, loginUser, targetUser, avatar}) => { 
+const message = ({message, loginUser, targetUser}) => { 
   return (
     <div className={`flex ${message.user_id == loginUser[0].id ? 'justify-end': 'justify-start gap-2'} min-w-max`}>
       {message.user_id !== loginUser[0].id ?
         <div className='w-[40px] h-[40px] '>
-          <img src={avatar ? avatar : defaultAvatar} alt="" className='object-cover h-full w-full rounded-full'/> 
+          <img src={targetUser[0].avatar ? `https://saeedwebdev.ir/avatar/${targetUser[0].avatar}` : defaultAvatar} alt="" className='object-cover h-full w-full rounded-full'/> 
         </div>
         : <></>
       }

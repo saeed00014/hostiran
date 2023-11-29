@@ -1,10 +1,10 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import HocWraper from '../../components/Hoc'
 import Body from './Body'
 import LeftBar from './leftBar/LeftBar'
 import Header from './Header'
 import GuestLeftBar from './leftBar/GuestLeftBar'
-import { useSelector } from 'react-redux'
 
 const HomePage = () => {
   const ui = useSelector((state) => state.ui)
