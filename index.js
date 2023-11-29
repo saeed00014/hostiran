@@ -30,6 +30,7 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(cookieParser());
 
+app.use("/", express.static(path.join(__dirname, "./src/pages/sma/assets")))
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, './src/pages/sma/assets/avatar')
@@ -38,9 +39,7 @@ const storage = multer.diskStorage({
     cb(null, Date.now() + '-' + file.originalname)
   }
 })
-
 const upload = multer({ storage: storage })
-
 app.post('/i', upload.single('image'), (req, res) => {
   res.send(req.file.filename)
 });

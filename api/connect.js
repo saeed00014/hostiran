@@ -6,5 +6,4 @@ const db = mysql.createConnection({
   password:"amiralim890",
   database:"saeedwe1_social2"
 })
-console.log(db)
 module.exports = {db}

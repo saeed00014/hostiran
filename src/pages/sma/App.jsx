@@ -81,6 +81,7 @@ function AppSma() {
     async function allPost() {
       const allPost = await getAllPost('https://saeedwebdev.ir/api/posts')
       dispatch(setAllPost(allPost))
+      console.log(allPost)
     }
     allPost()
   }, [])

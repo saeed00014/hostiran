@@ -12,11 +12,9 @@ const getMessages = (req, res) => {
     const chat1 = data
     db.query(commandFindChat2, [[user_id], [targetUser_id]], (err, data) => {
     if(err) res.status(500).json("failed to get messages")
-    console.log(chat1, data)
      if(chat1[0] || data[0]) {
        if(data[0]) {
          const chat_id = data[0].id
-         console.log(targetUser_id, user_id)
          db.query(commandGetAllChatMessages, [[chat_id]], (err, data) => {
            if(err) res.status(500).json("failed to get messages")
            res.status(200).json(data)
@@ -24,7 +22,6 @@ const getMessages = (req, res) => {
        }
        if(chat1[0]) {
          const chat_id = chat1[0].id
-         console.log(targetUser_id, user_id)
          db.query(commandGetAllChatMessages, [[chat_id]], (err, data) => {
            if(err) res.status(500).json("failed to get messages")
            res.status(200).json(data)
