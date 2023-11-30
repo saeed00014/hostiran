@@ -18,7 +18,7 @@ import { getAllComment } from '../../services/comment'
 import NotIntrest from './NotIntrest'
 import { Link } from 'react-router-dom'
 
-const PostCard = ({post, edition, handleSetCommentCall, targetUser}) => {
+const PostCard = ({post, isLoading, edition, handleSetCommentCall, targetUser}) => {
   const [notIntrest, setNotIntrest] = useState(false)
   const [sharePost, setSharePost] = useState(false)
   const [comment, setComment] = useState(false)
@@ -106,7 +106,7 @@ const PostCard = ({post, edition, handleSetCommentCall, targetUser}) => {
   }
 
   return (
-    <div key={post.id} className='relative flex justify-center w-full'>
+    <div key={post.id} className={`relative flex justify-center w-full ${isLoading == 'empty' ? 'opacity-60' : '' }`}>
       <div className={`flex flex-col  w-full ${edition ? '' : 'md:rounded-[.6rem] rounded-[.3rem] shadow-3xl' } max-w-[800px] bg-white`}>
         {edition !== 'comment' && 
           <header className='flex justify-between md:pt-3 pt-2 md:px-4 px-2 h-[48px] md:mb-3 mb-1 gap-3'>

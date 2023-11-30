@@ -10,6 +10,7 @@ const Body = () => {
   const dispatch = useDispatch()
   const ui = useSelector((state) => state.ui)
   const allPosts = ui.allPosts
+  const loginUser = ui.loginUser
   useEffect(() => {
     allPosts && allPosts.map(async (post) => {
       const url = `https://saeedwebdev.ir/api/users/${post && post.user_id}`
@@ -33,9 +34,23 @@ const Body = () => {
           allPosts[0] !== 'no posts' ?
           allPosts.map((post) => {
             const targetUser = allUserAddedPost[0] && allUserAddedPost.find((user) => user && user.id == post.user_id)
+            const isLoadingConfigure = post.post
+            let post2
+            isLoadingConfigure ? post2 = {"id": post.id, "user_id": post.id, "text": post.text , "media": post.media, "likes": 0, "comments": 0} 
+            : post2 = post
             return (
-              targetUser && <span key={post.id}>
-                <PostCard post={post} targetUser={targetUser} />
+              <span>
+                {targetUser && <span key={post.id}>
+                  <PostCard post={post2} targetUser={targetUser} />
+                </span>}
+                {isLoadingConfigure == 'empty' && loginUser && <span key={post.id}>
+                  <PostCard post={post2} isLoading={post.post} targetUser={loginUser[0]} />
+                </span>
+                }
+                {isLoadingConfigure && isLoadingConfigure !== 'empty' && loginUser && <span key={post.id}>
+                  <PostCard post={post.post[0]} isLoading={post.post} targetUser={loginUser[0]} />
+                </span>
+                }
               </span>
             )
           }) : <div className='flex justify-center w-full'>

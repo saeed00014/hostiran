@@ -1,5 +1,7 @@
 import React, { useRef, useState } from 'react'
 
+import { v4 as uuidv4 } from 'uuid';
+
 import { BsEmojiSmile } from 'react-icons/bs'
 import { BiSend } from 'react-icons/bi'
 import { GrGallery } from 'react-icons/gr'
@@ -19,12 +21,14 @@ const SendBar = ({post}) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     setState('')
+    const id = uuidv4()
     const text = ref.current.text.value
+    dispatch(setSelfComment([{"text":text, "loading": true, "id": id}]))
     const url = 'https://saeedwebdev.ir/api/comments'
     async function setNewComment() {
       const result = await createComment(url, text, post.id, loginUser[0].id)
       if(result) {
-        dispatch(setSelfComment(result))
+        dispatch(setSelfComment([{"text":text, "loading": false, "id": id}]))
       }
     }
     setNewComment()

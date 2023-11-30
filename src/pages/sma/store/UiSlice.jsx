@@ -1,4 +1,5 @@
 import { createSlice, current } from "@reduxjs/toolkit";
+import { comment } from "postcss";
 
 const initialState = {
   token: localStorage.getItem('token') ? 
@@ -68,7 +69,10 @@ const UiSlice = createSlice({
     },
     setSelfMessage(state, action) {
       const newMessage = action.payload
+      console.log(newMessage)
+      newMessage.loading ? 
       state.allMessages.push(newMessage)
+      : (state.allMessages.find((comment) => comment.id == newMessage.id).loading = false)
     },
     setAllMessage(state, action) {
       const allChat = action.payload
@@ -95,11 +99,15 @@ const UiSlice = createSlice({
     setOneTargetUserPost(state, action) {
       const oneTargetUserPost = action.payload
       state.alltargetUserPosts.push(oneTargetUserPost[0])
+      oneTargetUserPost[0].post !== 'empty' ? state.allPosts.find((post) => post.id == oneTargetUserPost[0].id).post = oneTargetUserPost[0].post 
+      : state.allPosts.push(oneTargetUserPost[0])
     },
     DeletePost(state, action) {
       const targetPost = action.payload
+
       state.allPosts = 
-        state.allPosts.filter((post) => targetPost.id !== post.id)
+        state.allPosts.filter((post) => targetPost.id !== (post.post ? post.post[0].id : post.id)) 
+
       state.alltargetUserPosts = 
         state.alltargetUserPosts.filter((post) => targetPost.id !== post.id)
     },
@@ -109,7 +117,9 @@ const UiSlice = createSlice({
     },
     setSelfComment(state, action) {
       const newComment = action.payload
-      state.allPostComments.push(newComment[0])
+      newComment[0].loading ? 
+        state.allPostComments.push(newComment[0])
+      : (state.allPostComments.find((comment) => comment.id == newComment[0].id).loading = false)
     }
   }
 })

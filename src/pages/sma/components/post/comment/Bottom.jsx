@@ -12,6 +12,7 @@ const CommentBottom = ({post, targetUser}) => {
   const [loadingComment, setLoadingComment] = useState(false)
   const ui = useSelector((state) => state.ui)
   const loginUser = ui.loginUser
+  const allPostComments = ui.allPostComments
   const dispatch = useDispatch()
   useEffect(() => {
     setLoadingComment(true)
@@ -31,12 +32,12 @@ const CommentBottom = ({post, targetUser}) => {
   }, [])
 
   return (
-    <div className='relative flex items-start w-full h-full px-4'>
+    <div className='relative flex items-start w-full h-full px-4 '>
       <div className='sticky top-0 flex flex-col items-start justify-between w-full h-full border-t-2'>
         <div className='flex flex-col w-full gap-3 pt-4'>
           {loadingComment ? 
             <Loading /> :
-            allCommentsState[0] ? allCommentsState.map((comment) => {
+            allPostComments[0] ? allPostComments.map((comment) => {
               return (
                 <Content comment={comment} loginUser={loginUser} targetUser={targetUser}/>
               )

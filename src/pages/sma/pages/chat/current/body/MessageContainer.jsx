@@ -9,7 +9,7 @@ const MassegeContainer = ({targetUser, loginUser}) => {
   const allMessages = ui.allMessages
 
   return (
-    <div className='flex flex-col w-full gap-4 pt-4 pb-56'>
+    <div className='flex flex-col w-full gap-4 pt-4'>
       {allMessages[0] == '' && 
         <div className='flex items-center justify-center w-full h-full'>
           <Loadingb color='black' />
@@ -26,6 +26,12 @@ const MassegeContainer = ({targetUser, loginUser}) => {
           )
         })
       }
+        <div className='flex h-[120px] border-b-2 invisible'>
+          sdfdfsdfs<br/>
+          sdfdfsdfs<br/>
+          sdfdfsdfs<br/>
+          sdfdsfdfs
+        </div>
     </div>
   )
 }

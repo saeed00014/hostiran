@@ -1,11 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
+
+import { v4 as uuidv4 } from 'uuid';
 
 import { FcGallery } from 'react-icons/fc'
 import { HiLocationMarker } from 'react-icons/hi'
 import { AiFillTags } from 'react-icons/ai'
-import { createPost, createPostMedia, getAllPost } from '../../services/post'
+import { createPost, createPostMedia } from '../../services/post'
 import { useDispatch, useSelector } from 'react-redux'
-import { setAllPost, setOneTargetUserPost } from '../../store/UiSlice'
+import { setOneTargetUserPost } from '../../store/UiSlice'
 
 import defaultAvatar from '../../assets/images/testImg.png'
 import Loadingb from '../loadingb'
@@ -27,6 +29,8 @@ const PostMaker = () => {
     const like = 0
     const fd = new FormData()
     fd.append('image', media)
+    const id = uuidv4()
+    dispatch(setOneTargetUserPost([{post: "empty", "text": text, "media": "", "loading": true, "id": id}]))
     const url = 'https://saeedwebdev.ir/api/posts'
     async function createGetPost() {
       if(media) {
@@ -34,9 +38,8 @@ const PostMaker = () => {
         if(result) {
           const post = result && await createPost(url, user_id, text, result, like)
           if(post) {
-            dispatch(setOneTargetUserPost(post))
-            const newAllPost = await getAllPost(url)
-            dispatch(setAllPost(newAllPost))
+            dispatch(setOneTargetUserPost([{post: post, "loading": false, "id": id}]))
+            // const newAllPost = await getAllPost(url)
             setLoadingSend(false)
           }
         }
@@ -45,9 +48,9 @@ const PostMaker = () => {
         const result = ''
         const post = await createPost(url, user_id, text, result, like)
         if(post) {
-          dispatch(setOneTargetUserPost(post))
-          const newAllPost = await getAllPost(url)
-          dispatch(setAllPost(newAllPost))
+          dispatch(setOneTargetUserPost([{post: post, "loading": false, "id": id}]))
+          // const newAllPost = await getAllPost(url)
+          // dispatch(setAllPost(newAllPost))
           setLoadingSend(false)
         }
         
