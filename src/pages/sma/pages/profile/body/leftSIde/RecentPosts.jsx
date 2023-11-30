@@ -13,7 +13,9 @@ const RecentPosts = () => {
       <div className='grid grid-cols-2 gap-2 rounded-[.4rem] overflow-hidden'>
         {allTargetUserPosts ? allTargetUserPosts.map((post) => {
           return (
-            <img src={`https://saeedwebdev.ir/avatar/${post.media}`} alt="" />
+            <span key={post.id}>
+              <img src={`https://saeedwebdev.ir/avatar/${post.media}`} alt="" />
+            </span>
           )
         })
         : <div></div> 

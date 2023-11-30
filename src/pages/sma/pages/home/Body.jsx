@@ -34,7 +34,9 @@ const Body = () => {
           allPosts.map((post) => {
             const targetUser = allUserAddedPost[0] && allUserAddedPost.find((user) => user && user.id == post.user_id)
             return (
-              targetUser && <PostCard post={post} targetUser={targetUser} />
+              targetUser && <span key={post.id}>
+                <PostCard post={post} targetUser={targetUser} />
+              </span>
             )
           }) : <div className='flex justify-center w-full'>
             <NoPost />

@@ -8,26 +8,12 @@ const Content = ({comment, loginUser, targetUser}) => {
   const ui = useSelector((state) => state.ui)
   const allLoginUsers = ui.allLoginUsers
   const commentUser = allLoginUsers.find((user) => user.id == comment.user_id)
-  useEffect(() => {
-    function getImgUrl(){
-      const res = new URL(`../../../assets/avatar/${targetUser && targetUser.avatar}`, import.meta.url).href
-      const urlLength = res.split('/').length
-      const url = res.split('/')[urlLength - 1]
-      if(url !== 'undefined') {
-        setAvatar(res)
-      }
-      if(url == 'undefined') {
-        setAvatar(null)
-      }
-    }
-    getImgUrl()
-  }, [targetUser])
 
   return (
     <div className={`flex ${comment.user_id == loginUser[0].id ? 'justify-end': 'justify-start gap-2'} min-w-max`}>
       {comment.user_id !== loginUser[0].id ?
         <div className='w-[40px] h-[40px] '>
-          <img src={avatar ? avatar : defaultAvatar} alt="" className='object-cover h-full w-full rounded-full'/> 
+          <img src={commentUser.avatar ? `https://saeedwebdev.ir/avatar/${commentUser.avatar}` : defaultAvatar} alt="" className='object-cover h-full w-full rounded-full'/> 
         </div>
         : <></>
       }

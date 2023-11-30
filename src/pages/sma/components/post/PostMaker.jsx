@@ -68,7 +68,7 @@ const PostMaker = () => {
         <div className='flex items-center justify-center w-full md:px-10 px-[5%]'>
           <div className='flex items-center justify-between w-full border-t-[2px] py-4 '>
             <div className='flex w-full md:gap-5 gap-2 [&>div>label]:flex [&>div>label]:gap-1 [&>div>input]:hidden [&>div>label>span]:flex [&>div>label>span]:items-center md:[&>div>label>span]:text-[1.1rem] [&>div>label>span]:text-clamp1 [&>div>label>span]:text-orange-600'>
-              <div className='flex items-center gap-2 font-semibold'>
+              <div className='flex items-center gap-2 font-semibold cursor-pointer'>
                 <label htmlFor='image'>
                   <span>
                     <FcGallery />
@@ -96,7 +96,7 @@ const PostMaker = () => {
                     <AiFillTags />
                   </span> 
                   <span>
-                    ها تگ
+                    تگها
                   </span>
                 </label>
                 <input type='file' name='image' id='image' />

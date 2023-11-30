@@ -12,7 +12,9 @@ const AllPosts = ({targetUser}) => {
       {allTargetUserPosts[0] == '' ? '' : 
       allTargetUserPosts[0] !== 'no post' ? allTargetUserPosts.map((post) => {
       return (
-        <PostCard post={post} targetUser={targetUser[0]}/>
+        <span key={post.id}>
+          <PostCard post={post} targetUser={targetUser[0]}/>
+        </span>
       )
       }) : 
       <div className='flex justify-center w-full'>
